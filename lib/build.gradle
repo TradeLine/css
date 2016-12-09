@@ -1,0 +1,33 @@
+apply plugin: "kotlin2js"
+
+
+configurations {
+    providedCompile
+    compile.extendsFrom providedCompile
+}
+
+dependencies {
+    providedCompile "org.jetbrains.kotlin:kotlin-js-library:$kotlin_version"
+}
+def out = "${buildDir}/classes/main"
+compileKotlin2Js {
+    kotlinOptions.sourceMap = true
+    kotlinOptions.outputFile = "$out/org.tlsys.css.js"
+    kotlinOptions.suppressWarnings = true
+    kotlinOptions.verbose = true
+    kotlinOptions.main = "call"
+}
+
+jar {
+    dependsOn(":${project.name}:compileKotlin2Js")
+    from new File(out)
+    include '*.js'
+    include '*.map'
+}
+
+/*
+compileKotlin2Js {
+    dependsOn copyKotlinJs
+}
+*/
+

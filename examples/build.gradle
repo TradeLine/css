@@ -1,0 +1,58 @@
+apply plugin: "kotlin2js"
+apply plugin: 'war'
+//apply plugin: 'jetty'
+apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+
+configurations{
+    kotlinLibs
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-js-library:$kotlin_version"
+    compile project(":lib")
+}
+
+
+//httpPort=8081
+def out = "${buildDir}/js"
+compileKotlin2Js {
+    kotlinOptions.sourceMap = true
+    kotlinOptions.outputFile = "$out/examples.js"
+    kotlinOptions.suppressWarnings = true
+    kotlinOptions.verbose = true
+    kotlinOptions.main = "call"
+}
+
+war {
+    dependsOn(":${project.name}:compileKotlin2Js")
+    from (out) {
+        include "*.js"
+        include "*.map"
+    }
+}
+
+gretty {
+    httpPort=8081
+    interactiveMode="restartOnKeyPress"
+}
+
+task copyKotlinJs()<<{
+    //doFirst {
+        copy {
+            //println configurations.runtime.resolve()
+            project.configurations.compile.asFileTree.each {
+                from(zipTree(it))
+
+
+            }
+            include '*.js'
+            include '*.map'
+            into file(out)
+        }
+    //}
+}
+
+
+compileKotlin2Js {
+    dependsOn copyKotlinJs
+}
