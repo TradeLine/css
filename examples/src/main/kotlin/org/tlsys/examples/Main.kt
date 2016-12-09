@@ -2,6 +2,7 @@ package org.tlsys.examples
 
 import org.tlsys.css.CSS
 import org.tlsys.css.CSSClassBuilder
+import org.tlsys.css.hover
 import org.w3c.dom.HTMLButtonElement
 import kotlin.browser.document
 import kotlin.dom.Closeable
@@ -16,25 +17,40 @@ fun createCSS() {
     css = CSS {
 
         val baseBtn = template {
-            border = "none 0px"
+            padding = "3px 16px 3px 16px"
+            borderRadius = "4px"
+            /*
+            then(":active") {
+                top = "1px"
+                left = "1px"
+                position = "relative"
+            }
+            */
         }
 
         add(".confirmBtn") {
             extend(baseBtn)
-            backgroundColor = "gree"
+            backgroundColor = "#8cc152"
+            border = "1px solid #8cc152"
+            color = "#fff"
         }
 
         add(".cancelBtn") {
             extend(baseBtn)
-            backgroundColor = "#CCC"
+            border = "1px solid #a9b2bd"
+            backgroundColor = "#fff"
+            color = "#000"
         }
 
         add(".d1") {
             border = "solid 1px"
             add(".p2") {
                 color = "black"
-                add(".userName") {
+                child(".userName") {
                     color = "red"
+                }
+                hover {
+                    color = "green"
                 }
             }
         }

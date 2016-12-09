@@ -38,6 +38,20 @@ interface CSSClass : CSSClassBuilder, CSSStyleDeclaration {
     fun child(name: String, function: CSSClass.() -> Unit): CSSClass
     fun and(name: String, function: CSSClass.() -> Unit): CSSClass
     fun extend(template: CSSTemplate)
+
+    /*
+    val Float.px: String
+        get() = "$this.px"
+
+    val Float.persent: String
+        get() = "$this.%"
+
+    val Int.px: String
+        get() = "$this.px"
+
+    val Int.persent: String
+        get() = "$this.%"
+    */
 }
 
 interface CSSTemplate : CSSClass
