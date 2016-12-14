@@ -10,7 +10,7 @@ interface CssBodyProvider {
 }
 
 interface CSSClassBuilder {
-    fun add(name: String, f: CSSClass.() -> Unit)
+    fun add(name: String, f: CSSClass.() -> Unit): CSSClass
     fun template(f: CSSTemplate.() -> Unit): CSSTemplate {
         val c = ClassBuilderImp()
         c.f()
@@ -18,19 +18,9 @@ interface CSSClassBuilder {
     }
 }
 
-/*
-fun CSSClass.hover(f: CSSClass.() -> Unit) {
-    then(":hover", f)
-}
-
-fun CSSClass.focus(f: CSSClass.() -> Unit) {
-    then(":focus", f)
-}
-*/
-
 interface CssSimpleClass : CSSStyleDeclaration {
     fun rgb(r: Double, g: Double, b: Double) = "rgb($r,$g,$b)"
-    fun rgba(r: Double, g: Double, b: Double, a:Double) = "rgba($r,$g,$b,$a)"
+    fun rgba(r: Double, g: Double, b: Double, a: Double) = "rgba($r,$g,$b,$a)"
 }
 
 interface CSSClass : CSSClassBuilder, CssSimpleClass {
@@ -56,12 +46,7 @@ interface CSSClass : CSSClassBuilder, CssSimpleClass {
     */
 }
 
-/**
- * Именованный CSS класс
- */
-interface NamedCssClass : CSSClass {
-    val name: String
-}
+interface CSSCustomBuilder : CssBodyProvider, CSSClassBuilder
 
 interface CSSTemplate : CSSClass
 
@@ -87,9 +72,11 @@ object CSS {
             add(".$name", f)
         })
     }
+
+    fun custom(): CSSCustomBuilder = BaseCSSBuilder()
 }
 
-private open class BaseCSSBuilder : CSSClassBuilder, CssBodyProvider {
+private open class BaseCSSBuilder : CSSCustomBuilder {
     override fun generateCss(): String {
         var l = 0
         val sb = StringBuilder()
@@ -103,10 +90,12 @@ private open class BaseCSSBuilder : CSSClassBuilder, CssBodyProvider {
 
     @JsName(name = "\$_classes")
     val classes = HashMap<String, ClassBuilderImp>()
-    override fun add(name: String, f: CSSClass.() -> Unit) {
+
+    override fun add(name: String, f: CSSClass.() -> Unit): CSSClass {
         val cb = ClassBuilderImp()
         cb.f()
         classes[name] = cb
+        return cb
     }
 }
 
@@ -139,7 +128,7 @@ private open class ClassBuilderImp : CSSClass, CSSTemplate, BaseCSSBuilder() {
         }
 
         val SELF_VAR = this
-        js("(function(){for(var key in SELF_VAR) if (!key.startsWith('\$_')&&(typeof SELF_VAR[key] !='function')){console.info('PROPERTY! ' + key);PROPERTY_GETTER(key,SELF_VAR[key])}})()")
+        js("(function(){for(var key in SELF_VAR) if (!key.startsWith('\$_')&&(typeof SELF_VAR[key] !='function')){PROPERTY_GETTER(key,SELF_VAR[key])}})()")
         return properys
     }
 
