@@ -1,5 +1,16 @@
+apply plugin: 'maven-publish'
 apply plugin: "kotlin2js"
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId "org.tlsys"
+            artifactId 'css'
+            version "1.0"
+            from components.java
+        }
+    }
+}
 
 configurations {
     providedCompile

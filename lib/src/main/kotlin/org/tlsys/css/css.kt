@@ -5,16 +5,11 @@ import org.w3c.dom.css.CSSStyleDeclaration
 import kotlin.browser.document
 import kotlin.dom.Closeable
 
-interface CSSRoot : CSSClassBuilder {
+interface CssBodyProvider {
+    fun generateCss(): String
 }
 
 interface CSSClassBuilder {
-    /*
-    operator fun String.invoke(f: CSSClass.() -> Unit) {
-        add(this, f)
-    }
-    */
-
     fun add(name: String, f: CSSClass.() -> Unit)
     fun template(f: CSSTemplate.() -> Unit): CSSTemplate {
         val c = ClassBuilderImp()
@@ -23,6 +18,7 @@ interface CSSClassBuilder {
     }
 }
 
+/*
 fun CSSClass.hover(f: CSSClass.() -> Unit) {
     then(":hover", f)
 }
@@ -30,8 +26,14 @@ fun CSSClass.hover(f: CSSClass.() -> Unit) {
 fun CSSClass.focus(f: CSSClass.() -> Unit) {
     then(":focus", f)
 }
+*/
 
-interface CSSClass : CSSClassBuilder, CSSStyleDeclaration {
+interface CssSimpleClass : CSSStyleDeclaration {
+    fun rgb(r: Double, g: Double, b: Double) = "rgb($r,$g,$b)"
+    fun rgba(r: Double, g: Double, b: Double, a:Double) = "rgba($r,$g,$b,$a)"
+}
+
+interface CSSClass : CSSClassBuilder, CssSimpleClass {
 
     fun then(name: String, function: CSSClass.() -> Unit): CSSClass
 
@@ -54,32 +56,41 @@ interface CSSClass : CSSClassBuilder, CSSStyleDeclaration {
     */
 }
 
+/**
+ * Именованный CSS класс
+ */
+interface NamedCssClass : CSSClass {
+    val name: String
+}
+
 interface CSSTemplate : CSSClass
 
 object CSS {
-    operator fun invoke(f: CSSRoot.() -> Unit): Closeable {
-        val c = CSS1()
+    operator fun invoke(f: CSSClassBuilder.() -> Unit): StyleBinder.Style {
+        val c = BaseCSSBuilder()
         c.f()
-        c.buildCss()
-        return c
+
+        return StyleBinder.bind(c.generateCss())
+    }
+
+    private var autoGenIt = 0
+
+    class NamedStyle(val name: String, val bind: StyleBinder.Style)
+
+    fun style(f: CSSClass.() -> Unit): NamedStyle {
+        val name = "st${autoGenIt++}"
+        return style(name, f)
+    }
+
+    fun style(name: String, f: CSSClass.() -> Unit): NamedStyle {
+        return NamedStyle(name = name, bind = invoke {
+            add(".$name", f)
+        })
     }
 }
 
-private class CSS1() : CSSClassBuilder, CSSRoot, Closeable {
-    override fun add(name: String, f: CSSClass.() -> Unit) {
-        val cb = ClassBuilderImp()
-        cb.f()
-        classes[name] = cb
-    }
-
-    val style = (document.createElement("style") as HTMLStyleElement)
-
-    override fun close() {
-        if (style.parentNode !== null)
-            style.parentNode!!.removeChild(style)
-    }
-
-    private fun genBody(): String {
+private open class BaseCSSBuilder : CSSClassBuilder, CssBodyProvider {
+    override fun generateCss(): String {
         var l = 0
         val sb = StringBuilder()
         for (f in classes) {
@@ -90,16 +101,13 @@ private class CSS1() : CSSClassBuilder, CSSRoot, Closeable {
         return sb.toString()
     }
 
-    fun buildCss() {
-        console.info(genBody())
-        style.apply {
-            innerHTML = genBody()
-            type = "text/css"
-            document.head!!.appendChild(this)
-        }
-    }
-
+    @JsName(name = "\$_classes")
     val classes = HashMap<String, ClassBuilderImp>()
+    override fun add(name: String, f: CSSClass.() -> Unit) {
+        val cb = ClassBuilderImp()
+        cb.f()
+        classes[name] = cb
+    }
 }
 
 private fun convertProperty(str: String): String {
@@ -112,7 +120,8 @@ private fun convertProperty(str: String): String {
     return out
 }
 
-private class ClassBuilderImp : CSSClass, CSSTemplate {
+private open class ClassBuilderImp : CSSClass, CSSTemplate, BaseCSSBuilder() {
+    /*
     @JsName(name = "\$_nodes")
     val nodes = HashMap<String, ClassBuilderImp>()
 
@@ -121,6 +130,7 @@ private class ClassBuilderImp : CSSClass, CSSTemplate {
         cb.f()
         nodes[name] = cb
     }
+    */
 
     fun getAllPropertys(): Map<String, String> {
         val properys = HashMap<String, String>()
@@ -152,14 +162,14 @@ private class ClassBuilderImp : CSSClass, CSSTemplate {
             d.value.genCss("$self${d.key}", f)
         for (d in childs)
             d.value.genCss("$self>${d.key}", f)
-        for (d in nodes)
+        for (d in classes)
             d.value.genCss("$self ${d.key}", f)
     }
 
     @JsName(name = "\$_ands")
     val ands = HashMap<String, ClassBuilderImp>()
 
-    override fun and(name: String, f: CSSClass.() -> Unit):CSSClass {
+    override fun and(name: String, f: CSSClass.() -> Unit): CSSClass {
         val cb = ClassBuilderImp()
         cb.f()
         ands[name] = cb
@@ -186,7 +196,7 @@ private class ClassBuilderImp : CSSClass, CSSTemplate {
     @JsName(name = "\$_childs")
     val childs = HashMap<String, ClassBuilderImp>()
 
-    override fun child(name: String, f: CSSClass.() -> Unit):CSSClass {
+    override fun child(name: String, f: CSSClass.() -> Unit): CSSClass {
         val cb = ClassBuilderImp()
         cb.f()
         childs[name] = cb
