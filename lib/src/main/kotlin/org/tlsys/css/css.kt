@@ -16,6 +16,8 @@ interface CSSClassBuilder {
         c.f()
         return c
     }
+
+    operator fun String.invoke(f: CSSClass.() -> Unit): CSSClass = add(this, f)
 }
 
 interface CssSimpleClass : CssDeclaration {
