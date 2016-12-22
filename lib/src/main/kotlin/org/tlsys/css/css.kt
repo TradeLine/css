@@ -18,7 +18,7 @@ interface CSSClassBuilder {
     }
 }
 
-interface CssSimpleClass : CSSStyleDeclaration {
+interface CssSimpleClass : CssDeclaration {
     fun rgb(r: Double, g: Double, b: Double) = "rgb($r,$g,$b)"
     fun rgba(r: Double, g: Double, b: Double, a: Double) = "rgba($r,$g,$b,$a)"
 }
