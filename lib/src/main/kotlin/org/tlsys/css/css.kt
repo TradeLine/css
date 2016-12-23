@@ -1,7 +1,6 @@
 package org.tlsys.css
 
 import org.w3c.dom.HTMLStyleElement
-import org.w3c.dom.css.CSSStyleDeclaration
 import kotlin.browser.document
 import kotlin.dom.Closeable
 
@@ -141,7 +140,6 @@ private open class ClassBuilderImp : CSSClass, CSSTemplate, BaseCSSBuilder() {
     }
 
     fun genCss(self: String, f: (String) -> Unit) {
-        console.dir(this)
         val body = StringBuilder()
         drawBody(body)
         for (s in extends)
