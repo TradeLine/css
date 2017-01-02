@@ -468,7 +468,7 @@ external interface CssDeclaration {
     var objectPosition: String
         get() = noImpl
         set(value) = noImpl
-    var opacity: String
+    var opacity: Double
         get() = noImpl
         set(value) = noImpl
     var order: String
@@ -684,7 +684,7 @@ external interface CssDeclaration {
     var writingMode: String
         get() = noImpl
         set(value) = noImpl
-    var zIndex: String
+    var zIndex: Int
         get() = noImpl
         set(value) = noImpl
 }
