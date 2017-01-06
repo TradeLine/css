@@ -1,12 +1,12 @@
 package org.tlsys.css
 
 external interface CssDeclaration {
-    var cssText: String
+    var text: String
         get() = noImpl
         set(value) = noImpl
     val length: Int
         get() = noImpl
-    var cssFloat: String
+    var float: String
         get() = noImpl
         set(value) = noImpl
     var _dashed_attribute: String
