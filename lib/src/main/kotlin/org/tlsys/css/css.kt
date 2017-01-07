@@ -64,7 +64,7 @@ object CSS {
     class NamedStyle(val name: String, val bind: StyleBinder.Style)
 
     fun style(f: CSSClass.() -> Unit): NamedStyle {
-        val name = "st${autoGenIt++}"
+        val name = genName()
         return style(name, f)
     }
 
@@ -75,6 +75,7 @@ object CSS {
     }
 
     fun custom(): CSSCustomBuilder = BaseCSSBuilder()
+    fun genName() = "st${autoGenIt++}"
 }
 
 private open class BaseCSSBuilder : CSSCustomBuilder {
