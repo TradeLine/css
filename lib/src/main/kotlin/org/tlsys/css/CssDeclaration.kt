@@ -1,7 +1,7 @@
 package org.tlsys.css
 
 import kotlin.js.definedExternally
-
+@JsName(name = "TL_SYS_CssDeclaration")
 open external class CssDeclaration {
     var text:String=definedExternally
     val length:Int=definedExternally
