@@ -38,6 +38,9 @@ abstract class CSSTemplate : CSSClass()
 interface CSSCustomBuilder : CssBodyProvider, CSSClassBuilder
 
 object CSS {
+    init {
+        js("function TL_SYS_CssDeclaration(){}")
+    }
     operator fun invoke(f: CSSClassBuilder.() -> Unit): StyleBinder.Style {
         val c = ClassBuilderImp()
         c.f()
