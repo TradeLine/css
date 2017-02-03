@@ -2,240 +2,692 @@ package org.tlsys.css
 
 import kotlin.js.definedExternally
 
-@JsName(name = "TL_SYS_CssDeclaration")
-
+//
 external interface CssDeclaration {
     var text: String?
         get() = definedExternally
-        set(it) = definedExternally
-    /*
-    val length:Int=definedExternally
-    var float:String=definedExternally
-    var _dashed_attribute:String=definedExternally
-    var _camel_cased_attribute:String=definedExternally
-    var alignContent:String=definedExternally
-    var alignItems:String=definedExternally
-    var alignSelf:String=definedExternally
-    var animation:String=definedExternally
-    var animationDelay:String=definedExternally
-    var animationDirection:String=definedExternally
-    var animationDuration:String=definedExternally
-    var animationFillMode:String=definedExternally
-    var animationIterationCount:String=definedExternally
-    var animationName:String=definedExternally
-    var animationPlayState:String=definedExternally
-    var animationTimingFunction:String=definedExternally
-    var backfaceVisibility:String=definedExternally
-    var background:String=definedExternally
-    var backgroundAttachment:String=definedExternally
-    var backgroundClip:String=definedExternally
-    var backgroundColor:String=definedExternally
-    var backgroundImage:String=definedExternally
-    var backgroundOrigin:String=definedExternally
-    var backgroundPosition:String=definedExternally
-    var backgroundRepeat:String=definedExternally
-    var backgroundSize:String=definedExternally
-    var border:String=definedExternally
-    var borderBottom:String=definedExternally
-    var borderBottomColor:String=definedExternally
-    var borderBottomLeftRadius:String=definedExternally
-    var borderBottomRightRadius:String=definedExternally
-    var borderBottomStyle:String=definedExternally
-    var borderBottomWidth:String=definedExternally
-    var borderCollapse:String=definedExternally
-    var borderColor:String=definedExternally
-    var borderImage:String=definedExternally
-    var borderImageOutset:String=definedExternally
-    var borderImageRepeat:String=definedExternally
-    var borderImageSlice:String=definedExternally
-    var borderImageSource:String=definedExternally
-    var borderImageWidth:String=definedExternally
-    var borderLeft:String=definedExternally
-    var borderLeftColor:String=definedExternally
-    var borderLeftStyle:String=definedExternally
-    var borderLeftWidth:String=definedExternally
-    var borderRadius:String=definedExternally
-    var borderRight:String=definedExternally
-    var borderRightColor:String=definedExternally
-    var borderRightStyle:String=definedExternally
-    var borderRightWidth:String=definedExternally
-    var borderSpacing:String=definedExternally
-    var borderStyle:String=definedExternally
-    var borderTop:String=definedExternally
-    var borderTopColor:String=definedExternally
-    var borderTopLeftRadius:String=definedExternally
-    var borderTopRightRadius:String=definedExternally
-    var borderTopStyle:String=definedExternally
-    var borderTopWidth:String=definedExternally
-    var borderWidth:String=definedExternally
-    var bottom:String=definedExternally
-    var boxDecorationBreak:String=definedExternally
-    var boxShadow:String=definedExternally
-    var boxSizing:String=definedExternally
-    var breakAfter:String=definedExternally
-    var breakBefore:String=definedExternally
-    var breakInside:String=definedExternally
-    var captionSide:String=definedExternally
-    var clear:String=definedExternally
-    var clip:String=definedExternally
-    var color:String=definedExternally
-    var columnCount:String=definedExternally
-    var columnFill:String=definedExternally
-    var columnGap:String=definedExternally
-    var columnRule:String=definedExternally
-    var columnRuleColor:String=definedExternally
-    var columnRuleStyle:String=definedExternally
-    var columnRuleWidth:String=definedExternally
-    var columnSpan:String=definedExternally
-    var columnWidth:String=definedExternally
-    var columns:String=definedExternally
-    var content:String=definedExternally
-    var counterIncrement:String=definedExternally
-    var counterReset:String=definedExternally
-    var cursor:String=definedExternally
-    var direction:String=definedExternally
-    var display:String=definedExternally
-    var emptyCells:String=definedExternally
-    var filter:String=definedExternally
-    var flex:String=definedExternally
-    var flexBasis:String=definedExternally
-    var flexDirection:String=definedExternally
-    var flexFlow:String=definedExternally
-    var flexGrow:String=definedExternally
-    var flexShrink:String=definedExternally
-    var flexWrap:String=definedExternally
-    var font:String=definedExternally
-    var fontFamily:String=definedExternally
-    var fontFeatureSettings:String=definedExternally
-    var fontKerning:String=definedExternally
-    var fontLanguageOverride:String=definedExternally
-    var fontSize:String=definedExternally
-    var fontSizeAdjust:String=definedExternally
-    var fontStretch:String=definedExternally
-    var fontStyle:String=definedExternally
-    var fontSynthesis:String=definedExternally
-    var fontVariant:String=definedExternally
-    var fontVariantAlternates:String=definedExternally
-    var fontVariantCaps:String=definedExternally
-    var fontVariantEastAsian:String=definedExternally
-    var fontVariantLigatures:String=definedExternally
-    var fontVariantNumeric:String=definedExternally
-    var fontVariantPosition:String=definedExternally
-    var fontWeight:String=definedExternally
-    var hangingPunctuation:String=definedExternally
-    var height:String=definedExternally
-    var hyphens:String=definedExternally
-    var imageOrientation:String=definedExternally
-    var imageRendering:String=definedExternally
-    var imageResolution:String=definedExternally
-    var imeMode:String=definedExternally
-    var justifyContent:String=definedExternally
-    var left:String=definedExternally
-    var letterSpacing:String=definedExternally
-    var lineBreak:String=definedExternally
-    var lineHeight:String=definedExternally
-    var listStyle:String=definedExternally
-    var listStyleImage:String=definedExternally
-    var listStylePosition:String=definedExternally
-    var listStyleType:String=definedExternally
-    var margin:String=definedExternally
-    var marginBottom:String=definedExternally
-    var marginLeft:String=definedExternally
-    var marginRight:String=definedExternally
-    var marginTop:String=definedExternally
-    var mark:String=definedExternally
-    var markAfter:String=definedExternally
-    var markBefore:String=definedExternally
-    var marks:String=definedExternally
-    var marqueeDirection:String=definedExternally
-    var marqueePlayCount:String=definedExternally
-    var marqueeSpeed:String=definedExternally
-    var marqueeStyle:String=definedExternally
-    var mask:String=definedExternally
-    var maskType:String=definedExternally
-    var maxHeight:String=definedExternally
-    var maxWidth:String=definedExternally
-    var minHeight:String=definedExternally
-    var minWidth:String=definedExternally
-    var navDown:String=definedExternally
-    var navIndex:String=definedExternally
-    var navLeft:String=definedExternally
-    var navRight:String=definedExternally
-    var navUp:String=definedExternally
-    var objectFit:String=definedExternally
-    var objectPosition:String=definedExternally
-    var opacity:Double=definedExternally
-    var order:String=definedExternally
-    var orphans:String=definedExternally
-    var outline:String=definedExternally
-    var outlineColor:String=definedExternally
-    var outlineOffset:String=definedExternally
-    var outlineStyle:String=definedExternally
-    var outlineWidth:String=definedExternally
-    var overflowWrap:String=definedExternally
-    var overflow:String=definedExternally
-    var overflowX:String=definedExternally
-    var overflowY:String=definedExternally
-    var padding:String=definedExternally
-    var paddingBottom:String=definedExternally
-    var paddingLeft:String=definedExternally
-    var paddingRight:String=definedExternally
-    var paddingTop:String=definedExternally
-    var pageBreakAfter:String=definedExternally
-    var pageBreakBefore:String=definedExternally
-    var pageBreakInside:String=definedExternally
-    var perspective:String=definedExternally
-    var perspectiveOrigin:String=definedExternally
-    var phonemes:String=definedExternally
-    var position:String=definedExternally
-    var quotes:String=definedExternally
-    var resize:String=definedExternally
-    var rest:String=definedExternally
-    var restAfter:String=definedExternally
-    var restBefore:String=definedExternally
-    var right:String=definedExternally
-    var tabSize:String=definedExternally
-    var tableLayout:String=definedExternally
-    var textAlign:String=definedExternally
-    var textAlignLast:String=definedExternally
-    var textCombineUpright:String=definedExternally
-    var textDecoration:String=definedExternally
-    var textDecorationColor:String=definedExternally
-    var textDecorationLine:String=definedExternally
-    var textDecorationStyle:String=definedExternally
-    var textIndent:String=definedExternally
-    var textJustify:String=definedExternally
-    var textOrientation:String=definedExternally
-    var textOverflow:String=definedExternally
-    var textShadow:String=definedExternally
-    var textTransform:String=definedExternally
-    var textUnderlinePosition:String=definedExternally
-    var top:String=definedExternally
-    var transform:String=definedExternally
-    var transformOrigin:String=definedExternally
-    var transformStyle:String=definedExternally
-    var transition:String=definedExternally
-    var transitionDelay:String=definedExternally
-    var transitionDuration:String=definedExternally
-    var transitionProperty:String=definedExternally
-    var transitionTimingFunction:String=definedExternally
-    var unicodeBidi:String=definedExternally
-    var verticalAlign:String=definedExternally
-    var visibility:String=definedExternally
-    var voiceBalance:String=definedExternally
-    var voiceDuration:String=definedExternally
-    var voicePitch:String=definedExternally
-    var voicePitchRange:String=definedExternally
-    var voiceRate:String=definedExternally
-    var voiceStress:String=definedExternally
-    var voiceVolume:String=definedExternally
-    var whiteSpace:String=definedExternally
-    var widows:String=definedExternally
-    var width:String=definedExternally
-    var wordBreak:String=definedExternally
-    var wordSpacing:String=definedExternally
-    var wordWrap:String=definedExternally
-    var writingMode:String=definedExternally
-    var zIndex:Int=definedExternally
-    */
+        set(value) = definedExternally
+    val length: Int?
+        get() = definedExternally
+    var float: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var _dashed_attribute: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var _camel_cased_attribute: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var alignContent: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var alignItems: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var alignSelf: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var animation: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var animationDelay: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var animationDirection: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var animationDuration: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var animationFillMode: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var animationIterationCount: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var animationName: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var animationPlayState: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var animationTimingFunction: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var backfaceVisibility: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var background: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var backgroundAttachment: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var backgroundClip: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var backgroundColor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var backgroundImage: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var backgroundOrigin: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var backgroundPosition: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var backgroundRepeat: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var backgroundSize: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var border: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderBottom: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderBottomColor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderBottomLeftRadius: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderBottomRightRadius: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderBottomStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderBottomWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderCollapse: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderColor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderImage: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderImageOutset: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderImageRepeat: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderImageSlice: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderImageSource: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderImageWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderLeft: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderLeftColor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderLeftStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderLeftWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderRadius: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderRight: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderRightColor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderRightStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderRightWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderSpacing: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderTop: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderTopColor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderTopLeftRadius: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderTopRightRadius: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderTopStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderTopWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var borderWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var bottom: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var boxDecorationBreak: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var boxShadow: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var boxSizing: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var breakAfter: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var breakBefore: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var breakInside: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var captionSide: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var clear: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var clip: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var color: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var columnCount: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var columnFill: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var columnGap: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var columnRule: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var columnRuleColor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var columnRuleStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var columnRuleWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var columnSpan: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var columnWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var columns: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var content: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var counterIncrement: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var counterReset: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var cursor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var direction: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var display: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var emptyCells: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var filter: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var flex: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var flexBasis: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var flexDirection: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var flexFlow: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var flexGrow: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var flexShrink: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var flexWrap: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var font: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontFamily: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontFeatureSettings: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontKerning: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontLanguageOverride: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontSize: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontSizeAdjust: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontStretch: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontSynthesis: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontVariant: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontVariantAlternates: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontVariantCaps: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontVariantEastAsian: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontVariantLigatures: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontVariantNumeric: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontVariantPosition: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var fontWeight: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var hangingPunctuation: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var height: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var hyphens: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var imageOrientation: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var imageRendering: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var imageResolution: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var imeMode: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var justifyContent: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var left: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var letterSpacing: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var lineBreak: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var lineHeight: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var listStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var listStyleImage: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var listStylePosition: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var listStyleType: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var margin: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var marginBottom: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var marginLeft: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var marginRight: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var marginTop: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var mark: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var markAfter: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var markBefore: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var marks: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var marqueeDirection: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var marqueePlayCount: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var marqueeSpeed: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var marqueeStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var mask: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var maskType: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var maxHeight: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var maxWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var minHeight: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var minWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var navDown: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var navIndex: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var navLeft: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var navRight: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var navUp: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var objectFit: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var objectPosition: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var opacity: Double?
+        get() = definedExternally
+        set(value) = definedExternally
+    var order: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var orphans: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var outline: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var outlineColor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var outlineOffset: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var outlineStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var outlineWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var overflowWrap: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var overflow: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var overflowX: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var overflowY: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var padding: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var paddingBottom: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var paddingLeft: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var paddingRight: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var paddingTop: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var pageBreakAfter: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var pageBreakBefore: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var pageBreakInside: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var perspective: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var perspectiveOrigin: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var phonemes: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var position: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var quotes: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var resize: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var rest: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var restAfter: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var restBefore: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var right: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var tabSize: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var tableLayout: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textAlign: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textAlignLast: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textCombineUpright: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textDecoration: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textDecorationColor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textDecorationLine: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textDecorationStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textIndent: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textJustify: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textOrientation: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textOverflow: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textShadow: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textTransform: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var textUnderlinePosition: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var top: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var transform: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var transformOrigin: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var transformStyle: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var transition: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var transitionDelay: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var transitionDuration: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var transitionProperty: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var transitionTimingFunction: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var unicodeBidi: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var verticalAlign: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var visibility: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var voiceBalance: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var voiceDuration: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var voicePitch: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var voicePitchRange: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var voiceRate: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var voiceStress: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var voiceVolume: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var whiteSpace: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var widows: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var width: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var wordBreak: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var wordSpacing: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var wordWrap: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var writingMode: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var zIndex: Int?
+        get() = definedExternally
+        set(value) = definedExternally
 }

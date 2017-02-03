@@ -9,35 +9,37 @@ interface CssBodyProvider {
 }
 
 interface CSSClassBuilder {
-    fun add(name: String, f: CSSClass.() -> Unit): CSSClass
+    fun add(name: String, f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass
     fun template(f: CSSTemplate.() -> Unit): CSSTemplate {
         val c = ClassBuilderImp(null)
         c.f()
         return c
     }
 
-    operator fun String.invoke(f: CSSClass.() -> Unit): CSSClass = add(this, f)
+    operator fun String.invoke(f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass = add(this, f)
     operator fun CSSClassBuilder.unaryPlus()
 }
 
-abstract class CssSimpleClass : CssDeclaration {
+interface CssClass : CssDeclaration {
     fun rgb(r: Double, g: Double, b: Double) = "rgb($r,$g,$b)"
     fun rgba(r: Double, g: Double, b: Double, a: Double) = "rgba($r,$g,$b,$a)"
 }
 
-abstract class CSSClass : CSSClassBuilder, CssSimpleClass() {
-
-    /*
-    abstract fun then(name: String, function: CSSClass.() -> Unit): CSSClass
-
-    abstract fun child(name: String, function: CSSClass.() -> Unit): CSSClass
-    abstract fun and(name: String, function: CSSClass.() -> Unit): CSSClass
-    */
-    abstract fun extend(template: CSSTemplate)
-
+interface SecretedCssClass : CssClass {
+    var selector: String
+    operator fun not(): TreeSecretedCssClass
 }
 
-abstract class CSSTemplate : CSSClass()
+interface TreeCssClass : CSSClassBuilder, CssClass {
+    fun extend(template: CSSTemplate)
+}
+
+interface TreeSecretedCssClass : CSSClassBuilder, CssClass, SecretedCssClass {
+    abstract fun extend(template: CSSTemplate)
+    fun hover(f: TreeSecretedCssClass.() -> Unit) = add(":hover", f)
+}
+
+interface CSSTemplate : TreeCssClass
 
 interface CSSCustomBuilder : CssBodyProvider, CSSClassBuilder
 
@@ -53,12 +55,12 @@ object CSS {
 
     class NamedStyle(val name: String, val bind: StyleBinder.Style)
 
-    fun style(f: CSSClass.() -> Unit): NamedStyle {
+    fun style(f: TreeSecretedCssClass.() -> Unit): NamedStyle {
         val name = genName()
         return style(name, f)
     }
 
-    fun style(name: String, f: CSSClass.() -> Unit): NamedStyle {
+    fun style(name: String, f: TreeSecretedCssClass.() -> Unit): NamedStyle {
         return NamedStyle(name = name, bind = invoke {
             add(".$name", f)
         })
@@ -82,7 +84,21 @@ private fun convertProperty(str: String): String {
     return out
 }
 
-private open class ClassBuilderImp(var name: String?) : CSSTemplate(), BaseCSSBuilder {
+private open class ClassBuilderImp(var name: String?) : CSSTemplate, BaseCSSBuilder, TreeSecretedCssClass {
+    override var selector: String
+        get() = name!!
+        set(value) {
+            name = value
+        }
+
+    override fun not(): TreeSecretedCssClass {
+        if (name == null)
+            TODO()
+        name = ":not($name)"
+        return this
+    }
+
+
     override fun CSSClassBuilder.unaryPlus() {
         if (name !== null && name!!.startsWith(" "))
             name = name!!.substring(1)
@@ -102,7 +118,7 @@ private open class ClassBuilderImp(var name: String?) : CSSTemplate(), BaseCSSBu
     @JsName(name = "\$_classes")
     val classes = ArrayList<ClassBuilderImp>()
 
-    override fun add(name: String, f: CSSClass.() -> Unit): CSSClass {
+    override fun add(name: String, f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass {
         val cb = ClassBuilderImp(" $name")
         cb.f()
         classes += cb
