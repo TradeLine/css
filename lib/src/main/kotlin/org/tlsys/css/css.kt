@@ -11,12 +11,13 @@ interface CssBodyProvider {
 interface CSSClassBuilder {
     fun add(name: String, f: CSSClass.() -> Unit): CSSClass
     fun template(f: CSSTemplate.() -> Unit): CSSTemplate {
-        val c = ClassBuilderImp()
+        val c = ClassBuilderImp(null)
         c.f()
         return c
     }
 
     operator fun String.invoke(f: CSSClass.() -> Unit): CSSClass = add(this, f)
+    operator fun CSSClassBuilder.unaryPlus()
 }
 
 abstract class CssSimpleClass : CssDeclaration {
@@ -26,11 +27,14 @@ abstract class CssSimpleClass : CssDeclaration {
 
 abstract class CSSClass : CSSClassBuilder, CssSimpleClass() {
 
+    /*
     abstract fun then(name: String, function: CSSClass.() -> Unit): CSSClass
 
     abstract fun child(name: String, function: CSSClass.() -> Unit): CSSClass
     abstract fun and(name: String, function: CSSClass.() -> Unit): CSSClass
+    */
     abstract fun extend(template: CSSTemplate)
+
 }
 
 abstract class CSSTemplate : CSSClass()
@@ -38,11 +42,8 @@ abstract class CSSTemplate : CSSClass()
 interface CSSCustomBuilder : CssBodyProvider, CSSClassBuilder
 
 object CSS {
-    init {
-        js("function TL_SYS_CssDeclaration(){}")
-    }
     operator fun invoke(f: CSSClassBuilder.() -> Unit): StyleBinder.Style {
-        val c = ClassBuilderImp()
+        val c = ClassBuilderImp(null)
         c.f()
 
         return StyleBinder.bind(c.generateCss())
@@ -63,7 +64,7 @@ object CSS {
         })
     }
 
-    fun custom(): CSSCustomBuilder = ClassBuilderImp()
+    fun custom(): CSSCustomBuilder = ClassBuilderImp(null)
     fun genName() = "st${autoGenIt++}"
 }
 
@@ -81,13 +82,17 @@ private fun convertProperty(str: String): String {
     return out
 }
 
-private open class ClassBuilderImp : CSSTemplate(), BaseCSSBuilder {
+private open class ClassBuilderImp(var name: String?) : CSSTemplate(), BaseCSSBuilder {
+    override fun CSSClassBuilder.unaryPlus() {
+        if (name !== null && name!!.startsWith(" "))
+            name = name!!.substring(1)
+    }
 
     override fun generateCss(): String {
         var l = 0
         val sb = StringBuilder()
         for (f in classes) {
-            f.value.genCss(f.key) {
+            f.genCss(null) {
                 sb.append(it)
             }
         }
@@ -95,12 +100,12 @@ private open class ClassBuilderImp : CSSTemplate(), BaseCSSBuilder {
     }
 
     @JsName(name = "\$_classes")
-    val classes = HashMap<String, ClassBuilderImp>()
+    val classes = ArrayList<ClassBuilderImp>()
 
     override fun add(name: String, f: CSSClass.() -> Unit): CSSClass {
-        val cb = ClassBuilderImp()
+        val cb = ClassBuilderImp(" $name")
         cb.f()
-        classes[name] = cb
+        classes += cb
         return cb
     }
 
@@ -128,26 +133,44 @@ private open class ClassBuilderImp : CSSTemplate(), BaseCSSBuilder {
 
     private fun drawBody(out: Appendable) {
         for (s in getAllPropertys()) {
-            out.append("\t${s.key}:${s.value};\n")
+            out.append("${s.key}:${s.value};")
         }
     }
 
-    fun genCss(self: String, f: (String) -> Unit) {
+    fun genCss(self: String?, f: (String) -> Unit) {
         val body = StringBuilder()
-        drawBody(body)
+        if (self !== null) {
+            drawBody(body)
+            f("$self{\n$body}\n")
+        }
+/*
         for (s in extends)
             s.drawBody(body)
-        f("$self {\n$body}\n")
+
+
         for (d in ands)
             d.value.genCss("$self.${d.key}", f)
         for (d in thens)
             d.value.genCss("$self${d.key}", f)
         for (d in childs)
             d.value.genCss("$self>${d.key}", f)
-        for (d in classes)
-            d.value.genCss("$self ${d.key}", f)
+        */
+        for (d in classes) {
+            d.genCss("${self ?: ""}${d.name}", f)
+        }
     }
 
+    /*
+    @JsName(name = "\$_extends")
+    val extends = ArrayList<ClassBuilderImp>()
+    */
+
+    override fun extend(template: CSSTemplate) {
+        val t = template as ClassBuilderImp
+        classes.addAll(t.classes)
+    }
+
+    /*
     @JsName(name = "\$_ands")
     val ands = HashMap<String, ClassBuilderImp>()
 
@@ -162,26 +185,22 @@ private open class ClassBuilderImp : CSSTemplate(), BaseCSSBuilder {
     val thens = HashMap<String, ClassBuilderImp>()
 
     override fun then(name: String, f: CSSClass.() -> Unit): CSSClass {
-        val cb = ClassBuilderImp()
+        val cb = ClassBuilderImp(name)
         cb.f()
         thens[name] = cb
         return cb
     }
 
-    @JsName(name = "\$_extends")
-    val extends = ArrayList<ClassBuilderImp>()
 
-    override fun extend(template: CSSTemplate) {
-        extends += template as ClassBuilderImp
-    }
 
     @JsName(name = "\$_childs")
     val childs = HashMap<String, ClassBuilderImp>()
 
     override fun child(name: String, f: CSSClass.() -> Unit): CSSClass {
-        val cb = ClassBuilderImp()
+        val cb = ClassBuilderImp(name)
         cb.f()
         childs[name] = cb
         return cb
     }
+    */
 }

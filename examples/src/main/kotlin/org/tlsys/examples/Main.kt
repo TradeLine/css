@@ -4,6 +4,8 @@ import org.tlsys.css.CSS
 import org.tlsys.css.CSSClassBuilder
 import org.tlsys.css.hover
 import org.w3c.dom.HTMLButtonElement
+import java.io.Closeable
+import javax.swing.text.html.CSS
 import kotlin.browser.document
 import kotlin.dom.Closeable
 import kotlin.dom.onClick
@@ -15,7 +17,13 @@ fun createCSS() {
         css!!.close()
 
     css = CSS {
+        "name"{
 
+        }
+
+        +"name"{
+
+        }
         val baseBtn = template {
             padding = "3px 16px 3px 16px"
             borderRadius = "4px"
