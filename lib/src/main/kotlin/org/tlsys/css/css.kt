@@ -19,7 +19,7 @@ interface CSSClassBuilder {
     operator fun String.invoke(f: CSSClass.() -> Unit): CSSClass = add(this, f)
 }
 
-abstract class CssSimpleClass : CssDeclaration() {
+abstract class CssSimpleClass : CssDeclaration {
     fun rgb(r: Double, g: Double, b: Double) = "rgb($r,$g,$b)"
     fun rgba(r: Double, g: Double, b: Double, a: Double) = "rgba($r,$g,$b,$a)"
 }
