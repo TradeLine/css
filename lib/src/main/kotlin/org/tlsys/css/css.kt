@@ -4,48 +4,71 @@ import org.w3c.dom.HTMLStyleElement
 import kotlin.browser.document
 import kotlin.dom.Closeable
 
+@JsName(name="A")
 interface CssBodyProvider {
     fun generateCss(): String
 }
 
+@JsName(name="B")
 interface CSSClassBuilder {
+    @JsName(name="C")
     fun add(name: String, f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass
+    @JsName(name="D")
     fun template(f: CSSTemplate.() -> Unit): CSSTemplate {
         val c = ClassBuilderImp(null)
         c.f()
         return c
     }
 
+    @JsName(name="E")
     operator fun String.invoke(f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass = add(this, f)
+
+    @JsName(name="F")
     infix fun String.then(function: TreeSecretedCssClass.() -> Unit) = add("$$this", function)
 }
 
+@JsName(name="J")
 interface CssClass : CssDeclaration {
+    @JsName(name="H")
     fun rgb(r: Double, g: Double, b: Double) = "rgb($r,$g,$b)"
+    @JsName(name="J")
     fun rgba(r: Double, g: Double, b: Double, a: Double) = "rgba($r,$g,$b,$a)"
 }
 
+@JsName(name="K")
 interface SecretedCssClass : CssClass {
+    @JsName(name="L")
     var selector: String
+
+    @JsName(name="M")
     operator fun not(): TreeSecretedCssClass
 }
 
+@JsName(name="N")
 interface TreeCssClass : CSSClassBuilder, CssClass {
+    @JsName(name="O")
     fun extend(template: CSSTemplate)
 }
 
+@JsName(name="P")
 interface TreeSecretedCssClass : CSSClassBuilder, CssClass, SecretedCssClass {
+    @JsName(name="Q")
     abstract fun extend(template: CSSTemplate)
+    @JsName(name="T")
     fun hover(f: TreeSecretedCssClass.() -> Unit): CSSClassBuilder {
         return add("$:hover", f)
     }
 }
 
+@JsName(name="W")
 interface CSSTemplate : TreeCssClass
 
+@JsName(name="X")
 interface CSSCustomBuilder : CssBodyProvider, CSSClassBuilder
 
+@JsName(name="Y")
 object CSS {
+    @JsName(name="Z")
     operator fun invoke(f: CSSClassBuilder.() -> Unit): StyleBinder.Style {
         val c = ClassBuilderImp(null)
         c.f()
@@ -53,30 +76,39 @@ object CSS {
         return StyleBinder.bind(c.generateCss())
     }
 
+    @JsName(name="A0")
     private var autoGenIt = 0
 
+    @JsName(name="B0")
     class NamedStyle(val name: String, val bind: StyleBinder.Style)
 
+    @JsName(name="C0")
     fun style(f: TreeSecretedCssClass.() -> Unit): NamedStyle {
         val name = genName()
         return style(name, f)
     }
 
+    @JsName(name="D0")
     fun style(name: String, f: TreeSecretedCssClass.() -> Unit): NamedStyle {
         return NamedStyle(name = name, bind = invoke {
             add(".$name", f)
         })
     }
 
+    @JsName(name="E0")
     fun custom(): CSSCustomBuilder = ClassBuilderImp(null)
+
+    @JsName(name="F0")
     fun genName() = "st${autoGenIt++}"
 }
 
+@JsName(name="G0")
 private open interface BaseCSSBuilder : CSSCustomBuilder {
 
 }
 //myExample
 //my-example
+@JsName(name="H0")
 private fun convertProperty(str: String): String {
     var out = ""
     for (i in 0..str.length-1) {
@@ -90,14 +122,16 @@ private fun convertProperty(str: String): String {
     return out
 }
 
+@JsName(name="J0")
 private open class ClassBuilderImp(
-        @JsName(name = "\$_name")
+        @JsName(name = "\$_Q0")
         var name: String?) : CSSTemplate, BaseCSSBuilder, TreeSecretedCssClass {
     override var selector: String
         get() = name!!
         set(value) {
             name = value
         }
+
 
     override fun not(): TreeSecretedCssClass {
         if (name == null)
@@ -122,7 +156,7 @@ private open class ClassBuilderImp(
         return sb.toString()
     }
 
-    @JsName(name = "\$_classes")
+    @JsName(name = "\$_S0")
     val classes = ArrayList<ClassBuilderImp>()
 
     override fun add(name: String, f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass {
@@ -139,6 +173,7 @@ private open class ClassBuilderImp(
         return cb
     }
 
+    @JsName(name="W0")
     fun close() {
     }
 
@@ -153,6 +188,7 @@ private open class ClassBuilderImp(
     }
     */
 
+    @JsName(name="R0")
     fun getAllPropertys(): Map<String, String> {
         val properys = HashMap<String, String>()
         val PROPERTY_GETTER: (String, String) -> Unit = { k, v ->
@@ -164,12 +200,14 @@ private open class ClassBuilderImp(
         return properys
     }
 
+    @JsName(name="T0")
     private fun drawBody(out: Appendable) {
         for (s in getAllPropertys()) {
             out.append("\t${s.key}:${s.value};\n")
         }
     }
 
+    @JsName(name="Y0")
     fun genCss(self: String?, f: (String) -> Unit) {
         val body = StringBuilder()
         var selfName = "${self ?: ""}${name ?: ""}"
