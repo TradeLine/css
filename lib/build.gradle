@@ -18,7 +18,7 @@ configurations {
 }
 
 dependencies {
-    providedCompile "org.jetbrains.kotlin:kotlin-js-library:$kotlin_version"
+    providedCompile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
 }
 def out = "${buildDir}/classes/main"
 compileKotlin2Js {

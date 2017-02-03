@@ -19,41 +19,27 @@ interface CSSClassBuilder {
     operator fun String.invoke(f: CSSClass.() -> Unit): CSSClass = add(this, f)
 }
 
-interface CssSimpleClass : CssDeclaration {
+abstract class CssSimpleClass : CssDeclaration() {
     fun rgb(r: Double, g: Double, b: Double) = "rgb($r,$g,$b)"
     fun rgba(r: Double, g: Double, b: Double, a: Double) = "rgba($r,$g,$b,$a)"
 }
 
-interface CSSClass : CSSClassBuilder, CssSimpleClass {
+abstract class CSSClass : CSSClassBuilder, CssSimpleClass() {
 
-    fun then(name: String, function: CSSClass.() -> Unit): CSSClass
+    abstract fun then(name: String, function: CSSClass.() -> Unit): CSSClass
 
-    fun child(name: String, function: CSSClass.() -> Unit): CSSClass
-    fun and(name: String, function: CSSClass.() -> Unit): CSSClass
-    fun extend(template: CSSTemplate)
-
-    /*
-    val Float.px: String
-        get() = "$this.px"
-
-    val Float.persent: String
-        get() = "$this.%"
-
-    val Int.px: String
-        get() = "$this.px"
-
-    val Int.persent: String
-        get() = "$this.%"
-    */
+    abstract fun child(name: String, function: CSSClass.() -> Unit): CSSClass
+    abstract fun and(name: String, function: CSSClass.() -> Unit): CSSClass
+    abstract fun extend(template: CSSTemplate)
 }
+
+abstract class CSSTemplate : CSSClass()
 
 interface CSSCustomBuilder : CssBodyProvider, CSSClassBuilder
 
-interface CSSTemplate : CSSClass
-
 object CSS {
     operator fun invoke(f: CSSClassBuilder.() -> Unit): StyleBinder.Style {
-        val c = BaseCSSBuilder()
+        val c = ClassBuilderImp()
         c.f()
 
         return StyleBinder.bind(c.generateCss())
@@ -74,11 +60,26 @@ object CSS {
         })
     }
 
-    fun custom(): CSSCustomBuilder = BaseCSSBuilder()
+    fun custom(): CSSCustomBuilder = ClassBuilderImp()
     fun genName() = "st${autoGenIt++}"
 }
 
-private open class BaseCSSBuilder : CSSCustomBuilder {
+private open interface BaseCSSBuilder : CSSCustomBuilder {
+
+}
+
+private fun convertProperty(str: String): String {
+    var out = ""
+    for (i in 0..str.length) {
+        val c = str[i]
+        val l = c.toLowerCase()
+        if (c == l) out += c else out += "-$l"
+    }
+    return out
+}
+
+private open class ClassBuilderImp : CSSTemplate(), BaseCSSBuilder {
+
     override fun generateCss(): String {
         var l = 0
         val sb = StringBuilder()
@@ -99,19 +100,7 @@ private open class BaseCSSBuilder : CSSCustomBuilder {
         classes[name] = cb
         return cb
     }
-}
 
-private fun convertProperty(str: String): String {
-    var out = ""
-    for (i in 0..str.length) {
-        val c = str[i]
-        val l = c.toLowerCase()
-        if (c == l) out += c else out += "-$l"
-    }
-    return out
-}
-
-private open class ClassBuilderImp : CSSClass, CSSTemplate, BaseCSSBuilder() {
     /*
     @JsName(name = "\$_nodes")
     val nodes = HashMap<String, ClassBuilderImp>()

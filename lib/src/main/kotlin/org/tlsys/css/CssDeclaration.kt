@@ -1,690 +1,235 @@
 package org.tlsys.css
 
-external interface CssDeclaration {
-    var text: String
-        get() = noImpl
-        set(value) = noImpl
-    val length: Int
-        get() = noImpl
-    var float: String
-        get() = noImpl
-        set(value) = noImpl
-    var _dashed_attribute: String
-        get() = noImpl
-        set(value) = noImpl
-    var _camel_cased_attribute: String
-        get() = noImpl
-        set(value) = noImpl
-    var alignContent: String
-        get() = noImpl
-        set(value) = noImpl
-    var alignItems: String
-        get() = noImpl
-        set(value) = noImpl
-    var alignSelf: String
-        get() = noImpl
-        set(value) = noImpl
-    var animation: String
-        get() = noImpl
-        set(value) = noImpl
-    var animationDelay: String
-        get() = noImpl
-        set(value) = noImpl
-    var animationDirection: String
-        get() = noImpl
-        set(value) = noImpl
-    var animationDuration: String
-        get() = noImpl
-        set(value) = noImpl
-    var animationFillMode: String
-        get() = noImpl
-        set(value) = noImpl
-    var animationIterationCount: String
-        get() = noImpl
-        set(value) = noImpl
-    var animationName: String
-        get() = noImpl
-        set(value) = noImpl
-    var animationPlayState: String
-        get() = noImpl
-        set(value) = noImpl
-    var animationTimingFunction: String
-        get() = noImpl
-        set(value) = noImpl
-    var backfaceVisibility: String
-        get() = noImpl
-        set(value) = noImpl
-    var background: String
-        get() = noImpl
-        set(value) = noImpl
-    var backgroundAttachment: String
-        get() = noImpl
-        set(value) = noImpl
-    var backgroundClip: String
-        get() = noImpl
-        set(value) = noImpl
-    var backgroundColor: String
-        get() = noImpl
-        set(value) = noImpl
-    var backgroundImage: String
-        get() = noImpl
-        set(value) = noImpl
-    var backgroundOrigin: String
-        get() = noImpl
-        set(value) = noImpl
-    var backgroundPosition: String
-        get() = noImpl
-        set(value) = noImpl
-    var backgroundRepeat: String
-        get() = noImpl
-        set(value) = noImpl
-    var backgroundSize: String
-        get() = noImpl
-        set(value) = noImpl
-    var border: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderBottom: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderBottomColor: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderBottomLeftRadius: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderBottomRightRadius: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderBottomStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderBottomWidth: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderCollapse: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderColor: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderImage: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderImageOutset: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderImageRepeat: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderImageSlice: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderImageSource: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderImageWidth: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderLeft: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderLeftColor: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderLeftStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderLeftWidth: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderRadius: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderRight: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderRightColor: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderRightStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderRightWidth: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderSpacing: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderTop: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderTopColor: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderTopLeftRadius: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderTopRightRadius: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderTopStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderTopWidth: String
-        get() = noImpl
-        set(value) = noImpl
-    var borderWidth: String
-        get() = noImpl
-        set(value) = noImpl
-    var bottom: String
-        get() = noImpl
-        set(value) = noImpl
-    var boxDecorationBreak: String
-        get() = noImpl
-        set(value) = noImpl
-    var boxShadow: String
-        get() = noImpl
-        set(value) = noImpl
-    var boxSizing: String
-        get() = noImpl
-        set(value) = noImpl
-    var breakAfter: String
-        get() = noImpl
-        set(value) = noImpl
-    var breakBefore: String
-        get() = noImpl
-        set(value) = noImpl
-    var breakInside: String
-        get() = noImpl
-        set(value) = noImpl
-    var captionSide: String
-        get() = noImpl
-        set(value) = noImpl
-    var clear: String
-        get() = noImpl
-        set(value) = noImpl
-    var clip: String
-        get() = noImpl
-        set(value) = noImpl
-    var color: String
-        get() = noImpl
-        set(value) = noImpl
-    var columnCount: String
-        get() = noImpl
-        set(value) = noImpl
-    var columnFill: String
-        get() = noImpl
-        set(value) = noImpl
-    var columnGap: String
-        get() = noImpl
-        set(value) = noImpl
-    var columnRule: String
-        get() = noImpl
-        set(value) = noImpl
-    var columnRuleColor: String
-        get() = noImpl
-        set(value) = noImpl
-    var columnRuleStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var columnRuleWidth: String
-        get() = noImpl
-        set(value) = noImpl
-    var columnSpan: String
-        get() = noImpl
-        set(value) = noImpl
-    var columnWidth: String
-        get() = noImpl
-        set(value) = noImpl
-    var columns: String
-        get() = noImpl
-        set(value) = noImpl
-    var content: String
-        get() = noImpl
-        set(value) = noImpl
-    var counterIncrement: String
-        get() = noImpl
-        set(value) = noImpl
-    var counterReset: String
-        get() = noImpl
-        set(value) = noImpl
-    var cursor: String
-        get() = noImpl
-        set(value) = noImpl
-    var direction: String
-        get() = noImpl
-        set(value) = noImpl
-    var display: String
-        get() = noImpl
-        set(value) = noImpl
-    var emptyCells: String
-        get() = noImpl
-        set(value) = noImpl
-    var filter: String
-        get() = noImpl
-        set(value) = noImpl
-    var flex: String
-        get() = noImpl
-        set(value) = noImpl
-    var flexBasis: String
-        get() = noImpl
-        set(value) = noImpl
-    var flexDirection: String
-        get() = noImpl
-        set(value) = noImpl
-    var flexFlow: String
-        get() = noImpl
-        set(value) = noImpl
-    var flexGrow: String
-        get() = noImpl
-        set(value) = noImpl
-    var flexShrink: String
-        get() = noImpl
-        set(value) = noImpl
-    var flexWrap: String
-        get() = noImpl
-        set(value) = noImpl
-    var font: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontFamily: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontFeatureSettings: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontKerning: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontLanguageOverride: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontSize: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontSizeAdjust: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontStretch: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontSynthesis: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontVariant: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontVariantAlternates: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontVariantCaps: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontVariantEastAsian: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontVariantLigatures: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontVariantNumeric: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontVariantPosition: String
-        get() = noImpl
-        set(value) = noImpl
-    var fontWeight: String
-        get() = noImpl
-        set(value) = noImpl
-    var hangingPunctuation: String
-        get() = noImpl
-        set(value) = noImpl
-    var height: String
-        get() = noImpl
-        set(value) = noImpl
-    var hyphens: String
-        get() = noImpl
-        set(value) = noImpl
-    var imageOrientation: String
-        get() = noImpl
-        set(value) = noImpl
-    var imageRendering: String
-        get() = noImpl
-        set(value) = noImpl
-    var imageResolution: String
-        get() = noImpl
-        set(value) = noImpl
-    var imeMode: String
-        get() = noImpl
-        set(value) = noImpl
-    var justifyContent: String
-        get() = noImpl
-        set(value) = noImpl
-    var left: String
-        get() = noImpl
-        set(value) = noImpl
-    var letterSpacing: String
-        get() = noImpl
-        set(value) = noImpl
-    var lineBreak: String
-        get() = noImpl
-        set(value) = noImpl
-    var lineHeight: String
-        get() = noImpl
-        set(value) = noImpl
-    var listStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var listStyleImage: String
-        get() = noImpl
-        set(value) = noImpl
-    var listStylePosition: String
-        get() = noImpl
-        set(value) = noImpl
-    var listStyleType: String
-        get() = noImpl
-        set(value) = noImpl
-    var margin: String
-        get() = noImpl
-        set(value) = noImpl
-    var marginBottom: String
-        get() = noImpl
-        set(value) = noImpl
-    var marginLeft: String
-        get() = noImpl
-        set(value) = noImpl
-    var marginRight: String
-        get() = noImpl
-        set(value) = noImpl
-    var marginTop: String
-        get() = noImpl
-        set(value) = noImpl
-    var mark: String
-        get() = noImpl
-        set(value) = noImpl
-    var markAfter: String
-        get() = noImpl
-        set(value) = noImpl
-    var markBefore: String
-        get() = noImpl
-        set(value) = noImpl
-    var marks: String
-        get() = noImpl
-        set(value) = noImpl
-    var marqueeDirection: String
-        get() = noImpl
-        set(value) = noImpl
-    var marqueePlayCount: String
-        get() = noImpl
-        set(value) = noImpl
-    var marqueeSpeed: String
-        get() = noImpl
-        set(value) = noImpl
-    var marqueeStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var mask: String
-        get() = noImpl
-        set(value) = noImpl
-    var maskType: String
-        get() = noImpl
-        set(value) = noImpl
-    var maxHeight: String
-        get() = noImpl
-        set(value) = noImpl
-    var maxWidth: String
-        get() = noImpl
-        set(value) = noImpl
-    var minHeight: String
-        get() = noImpl
-        set(value) = noImpl
-    var minWidth: String
-        get() = noImpl
-        set(value) = noImpl
-    var navDown: String
-        get() = noImpl
-        set(value) = noImpl
-    var navIndex: String
-        get() = noImpl
-        set(value) = noImpl
-    var navLeft: String
-        get() = noImpl
-        set(value) = noImpl
-    var navRight: String
-        get() = noImpl
-        set(value) = noImpl
-    var navUp: String
-        get() = noImpl
-        set(value) = noImpl
-    var objectFit: String
-        get() = noImpl
-        set(value) = noImpl
-    var objectPosition: String
-        get() = noImpl
-        set(value) = noImpl
-    var opacity: Double
-        get() = noImpl
-        set(value) = noImpl
-    var order: String
-        get() = noImpl
-        set(value) = noImpl
-    var orphans: String
-        get() = noImpl
-        set(value) = noImpl
-    var outline: String
-        get() = noImpl
-        set(value) = noImpl
-    var outlineColor: String
-        get() = noImpl
-        set(value) = noImpl
-    var outlineOffset: String
-        get() = noImpl
-        set(value) = noImpl
-    var outlineStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var outlineWidth: String
-        get() = noImpl
-        set(value) = noImpl
-    var overflowWrap: String
-        get() = noImpl
-        set(value) = noImpl
-    var overflow: String
-        get() = noImpl
-        set(value) = noImpl
-    var overflowX: String
-        get() = noImpl
-        set(value) = noImpl
-    var overflowY: String
-        get() = noImpl
-        set(value) = noImpl
-    var padding: String
-        get() = noImpl
-        set(value) = noImpl
-    var paddingBottom: String
-        get() = noImpl
-        set(value) = noImpl
-    var paddingLeft: String
-        get() = noImpl
-        set(value) = noImpl
-    var paddingRight: String
-        get() = noImpl
-        set(value) = noImpl
-    var paddingTop: String
-        get() = noImpl
-        set(value) = noImpl
-    var pageBreakAfter: String
-        get() = noImpl
-        set(value) = noImpl
-    var pageBreakBefore: String
-        get() = noImpl
-        set(value) = noImpl
-    var pageBreakInside: String
-        get() = noImpl
-        set(value) = noImpl
-    var perspective: String
-        get() = noImpl
-        set(value) = noImpl
-    var perspectiveOrigin: String
-        get() = noImpl
-        set(value) = noImpl
-    var phonemes: String
-        get() = noImpl
-        set(value) = noImpl
-    var position: String
-        get() = noImpl
-        set(value) = noImpl
-    var quotes: String
-        get() = noImpl
-        set(value) = noImpl
-    var resize: String
-        get() = noImpl
-        set(value) = noImpl
-    var rest: String
-        get() = noImpl
-        set(value) = noImpl
-    var restAfter: String
-        get() = noImpl
-        set(value) = noImpl
-    var restBefore: String
-        get() = noImpl
-        set(value) = noImpl
-    var right: String
-        get() = noImpl
-        set(value) = noImpl
-    var tabSize: String
-        get() = noImpl
-        set(value) = noImpl
-    var tableLayout: String
-        get() = noImpl
-        set(value) = noImpl
-    var textAlign: String
-        get() = noImpl
-        set(value) = noImpl
-    var textAlignLast: String
-        get() = noImpl
-        set(value) = noImpl
-    var textCombineUpright: String
-        get() = noImpl
-        set(value) = noImpl
-    var textDecoration: String
-        get() = noImpl
-        set(value) = noImpl
-    var textDecorationColor: String
-        get() = noImpl
-        set(value) = noImpl
-    var textDecorationLine: String
-        get() = noImpl
-        set(value) = noImpl
-    var textDecorationStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var textIndent: String
-        get() = noImpl
-        set(value) = noImpl
-    var textJustify: String
-        get() = noImpl
-        set(value) = noImpl
-    var textOrientation: String
-        get() = noImpl
-        set(value) = noImpl
-    var textOverflow: String
-        get() = noImpl
-        set(value) = noImpl
-    var textShadow: String
-        get() = noImpl
-        set(value) = noImpl
-    var textTransform: String
-        get() = noImpl
-        set(value) = noImpl
-    var textUnderlinePosition: String
-        get() = noImpl
-        set(value) = noImpl
-    var top: String
-        get() = noImpl
-        set(value) = noImpl
-    var transform: String
-        get() = noImpl
-        set(value) = noImpl
-    var transformOrigin: String
-        get() = noImpl
-        set(value) = noImpl
-    var transformStyle: String
-        get() = noImpl
-        set(value) = noImpl
-    var transition: String
-        get() = noImpl
-        set(value) = noImpl
-    var transitionDelay: String
-        get() = noImpl
-        set(value) = noImpl
-    var transitionDuration: String
-        get() = noImpl
-        set(value) = noImpl
-    var transitionProperty: String
-        get() = noImpl
-        set(value) = noImpl
-    var transitionTimingFunction: String
-        get() = noImpl
-        set(value) = noImpl
-    var unicodeBidi: String
-        get() = noImpl
-        set(value) = noImpl
-    var verticalAlign: String
-        get() = noImpl
-        set(value) = noImpl
-    var visibility: String
-        get() = noImpl
-        set(value) = noImpl
-    var voiceBalance: String
-        get() = noImpl
-        set(value) = noImpl
-    var voiceDuration: String
-        get() = noImpl
-        set(value) = noImpl
-    var voicePitch: String
-        get() = noImpl
-        set(value) = noImpl
-    var voicePitchRange: String
-        get() = noImpl
-        set(value) = noImpl
-    var voiceRate: String
-        get() = noImpl
-        set(value) = noImpl
-    var voiceStress: String
-        get() = noImpl
-        set(value) = noImpl
-    var voiceVolume: String
-        get() = noImpl
-        set(value) = noImpl
-    var whiteSpace: String
-        get() = noImpl
-        set(value) = noImpl
-    var widows: String
-        get() = noImpl
-        set(value) = noImpl
-    var width: String
-        get() = noImpl
-        set(value) = noImpl
-    var wordBreak: String
-        get() = noImpl
-        set(value) = noImpl
-    var wordSpacing: String
-        get() = noImpl
-        set(value) = noImpl
-    var wordWrap: String
-        get() = noImpl
-        set(value) = noImpl
-    var writingMode: String
-        get() = noImpl
-        set(value) = noImpl
-    var zIndex: Int
-        get() = noImpl
-        set(value) = noImpl
+import kotlin.js.definedExternally
+
+open external class CssDeclaration {
+    var text:String=definedExternally
+    val length:Int=definedExternally
+    var float:String=definedExternally
+    var _dashed_attribute:String=definedExternally
+    var _camel_cased_attribute:String=definedExternally
+    var alignContent:String=definedExternally
+    var alignItems:String=definedExternally
+    var alignSelf:String=definedExternally
+    var animation:String=definedExternally
+    var animationDelay:String=definedExternally
+    var animationDirection:String=definedExternally
+    var animationDuration:String=definedExternally
+    var animationFillMode:String=definedExternally
+    var animationIterationCount:String=definedExternally
+    var animationName:String=definedExternally
+    var animationPlayState:String=definedExternally
+    var animationTimingFunction:String=definedExternally
+    var backfaceVisibility:String=definedExternally
+    var background:String=definedExternally
+    var backgroundAttachment:String=definedExternally
+    var backgroundClip:String=definedExternally
+    var backgroundColor:String=definedExternally
+    var backgroundImage:String=definedExternally
+    var backgroundOrigin:String=definedExternally
+    var backgroundPosition:String=definedExternally
+    var backgroundRepeat:String=definedExternally
+    var backgroundSize:String=definedExternally
+    var border:String=definedExternally
+    var borderBottom:String=definedExternally
+    var borderBottomColor:String=definedExternally
+    var borderBottomLeftRadius:String=definedExternally
+    var borderBottomRightRadius:String=definedExternally
+    var borderBottomStyle:String=definedExternally
+    var borderBottomWidth:String=definedExternally
+    var borderCollapse:String=definedExternally
+    var borderColor:String=definedExternally
+    var borderImage:String=definedExternally
+    var borderImageOutset:String=definedExternally
+    var borderImageRepeat:String=definedExternally
+    var borderImageSlice:String=definedExternally
+    var borderImageSource:String=definedExternally
+    var borderImageWidth:String=definedExternally
+    var borderLeft:String=definedExternally
+    var borderLeftColor:String=definedExternally
+    var borderLeftStyle:String=definedExternally
+    var borderLeftWidth:String=definedExternally
+    var borderRadius:String=definedExternally
+    var borderRight:String=definedExternally
+    var borderRightColor:String=definedExternally
+    var borderRightStyle:String=definedExternally
+    var borderRightWidth:String=definedExternally
+    var borderSpacing:String=definedExternally
+    var borderStyle:String=definedExternally
+    var borderTop:String=definedExternally
+    var borderTopColor:String=definedExternally
+    var borderTopLeftRadius:String=definedExternally
+    var borderTopRightRadius:String=definedExternally
+    var borderTopStyle:String=definedExternally
+    var borderTopWidth:String=definedExternally
+    var borderWidth:String=definedExternally
+    var bottom:String=definedExternally
+    var boxDecorationBreak:String=definedExternally
+    var boxShadow:String=definedExternally
+    var boxSizing:String=definedExternally
+    var breakAfter:String=definedExternally
+    var breakBefore:String=definedExternally
+    var breakInside:String=definedExternally
+    var captionSide:String=definedExternally
+    var clear:String=definedExternally
+    var clip:String=definedExternally
+    var color:String=definedExternally
+    var columnCount:String=definedExternally
+    var columnFill:String=definedExternally
+    var columnGap:String=definedExternally
+    var columnRule:String=definedExternally
+    var columnRuleColor:String=definedExternally
+    var columnRuleStyle:String=definedExternally
+    var columnRuleWidth:String=definedExternally
+    var columnSpan:String=definedExternally
+    var columnWidth:String=definedExternally
+    var columns:String=definedExternally
+    var content:String=definedExternally
+    var counterIncrement:String=definedExternally
+    var counterReset:String=definedExternally
+    var cursor:String=definedExternally
+    var direction:String=definedExternally
+    var display:String=definedExternally
+    var emptyCells:String=definedExternally
+    var filter:String=definedExternally
+    var flex:String=definedExternally
+    var flexBasis:String=definedExternally
+    var flexDirection:String=definedExternally
+    var flexFlow:String=definedExternally
+    var flexGrow:String=definedExternally
+    var flexShrink:String=definedExternally
+    var flexWrap:String=definedExternally
+    var font:String=definedExternally
+    var fontFamily:String=definedExternally
+    var fontFeatureSettings:String=definedExternally
+    var fontKerning:String=definedExternally
+    var fontLanguageOverride:String=definedExternally
+    var fontSize:String=definedExternally
+    var fontSizeAdjust:String=definedExternally
+    var fontStretch:String=definedExternally
+    var fontStyle:String=definedExternally
+    var fontSynthesis:String=definedExternally
+    var fontVariant:String=definedExternally
+    var fontVariantAlternates:String=definedExternally
+    var fontVariantCaps:String=definedExternally
+    var fontVariantEastAsian:String=definedExternally
+    var fontVariantLigatures:String=definedExternally
+    var fontVariantNumeric:String=definedExternally
+    var fontVariantPosition:String=definedExternally
+    var fontWeight:String=definedExternally
+    var hangingPunctuation:String=definedExternally
+    var height:String=definedExternally
+    var hyphens:String=definedExternally
+    var imageOrientation:String=definedExternally
+    var imageRendering:String=definedExternally
+    var imageResolution:String=definedExternally
+    var imeMode:String=definedExternally
+    var justifyContent:String=definedExternally
+    var left:String=definedExternally
+    var letterSpacing:String=definedExternally
+    var lineBreak:String=definedExternally
+    var lineHeight:String=definedExternally
+    var listStyle:String=definedExternally
+    var listStyleImage:String=definedExternally
+    var listStylePosition:String=definedExternally
+    var listStyleType:String=definedExternally
+    var margin:String=definedExternally
+    var marginBottom:String=definedExternally
+    var marginLeft:String=definedExternally
+    var marginRight:String=definedExternally
+    var marginTop:String=definedExternally
+    var mark:String=definedExternally
+    var markAfter:String=definedExternally
+    var markBefore:String=definedExternally
+    var marks:String=definedExternally
+    var marqueeDirection:String=definedExternally
+    var marqueePlayCount:String=definedExternally
+    var marqueeSpeed:String=definedExternally
+    var marqueeStyle:String=definedExternally
+    var mask:String=definedExternally
+    var maskType:String=definedExternally
+    var maxHeight:String=definedExternally
+    var maxWidth:String=definedExternally
+    var minHeight:String=definedExternally
+    var minWidth:String=definedExternally
+    var navDown:String=definedExternally
+    var navIndex:String=definedExternally
+    var navLeft:String=definedExternally
+    var navRight:String=definedExternally
+    var navUp:String=definedExternally
+    var objectFit:String=definedExternally
+    var objectPosition:String=definedExternally
+    var opacity:Double=definedExternally
+    var order:String=definedExternally
+    var orphans:String=definedExternally
+    var outline:String=definedExternally
+    var outlineColor:String=definedExternally
+    var outlineOffset:String=definedExternally
+    var outlineStyle:String=definedExternally
+    var outlineWidth:String=definedExternally
+    var overflowWrap:String=definedExternally
+    var overflow:String=definedExternally
+    var overflowX:String=definedExternally
+    var overflowY:String=definedExternally
+    var padding:String=definedExternally
+    var paddingBottom:String=definedExternally
+    var paddingLeft:String=definedExternally
+    var paddingRight:String=definedExternally
+    var paddingTop:String=definedExternally
+    var pageBreakAfter:String=definedExternally
+    var pageBreakBefore:String=definedExternally
+    var pageBreakInside:String=definedExternally
+    var perspective:String=definedExternally
+    var perspectiveOrigin:String=definedExternally
+    var phonemes:String=definedExternally
+    var position:String=definedExternally
+    var quotes:String=definedExternally
+    var resize:String=definedExternally
+    var rest:String=definedExternally
+    var restAfter:String=definedExternally
+    var restBefore:String=definedExternally
+    var right:String=definedExternally
+    var tabSize:String=definedExternally
+    var tableLayout:String=definedExternally
+    var textAlign:String=definedExternally
+    var textAlignLast:String=definedExternally
+    var textCombineUpright:String=definedExternally
+    var textDecoration:String=definedExternally
+    var textDecorationColor:String=definedExternally
+    var textDecorationLine:String=definedExternally
+    var textDecorationStyle:String=definedExternally
+    var textIndent:String=definedExternally
+    var textJustify:String=definedExternally
+    var textOrientation:String=definedExternally
+    var textOverflow:String=definedExternally
+    var textShadow:String=definedExternally
+    var textTransform:String=definedExternally
+    var textUnderlinePosition:String=definedExternally
+    var top:String=definedExternally
+    var transform:String=definedExternally
+    var transformOrigin:String=definedExternally
+    var transformStyle:String=definedExternally
+    var transition:String=definedExternally
+    var transitionDelay:String=definedExternally
+    var transitionDuration:String=definedExternally
+    var transitionProperty:String=definedExternally
+    var transitionTimingFunction:String=definedExternally
+    var unicodeBidi:String=definedExternally
+    var verticalAlign:String=definedExternally
+    var visibility:String=definedExternally
+    var voiceBalance:String=definedExternally
+    var voiceDuration:String=definedExternally
+    var voicePitch:String=definedExternally
+    var voicePitchRange:String=definedExternally
+    var voiceRate:String=definedExternally
+    var voiceStress:String=definedExternally
+    var voiceVolume:String=definedExternally
+    var whiteSpace:String=definedExternally
+    var widows:String=definedExternally
+    var width:String=definedExternally
+    var wordBreak:String=definedExternally
+    var wordSpacing:String=definedExternally
+    var wordWrap:String=definedExternally
+    var writingMode:String=definedExternally
+    var zIndex:Int=definedExternally
 }
