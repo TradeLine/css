@@ -1,11 +1,13 @@
 package org.tlsys.css
 
 import kotlin.js.definedExternally
+
 @JsName(name = "TL_SYS_CssDeclaration")
-open abstract external class CssDeclaration {
-    var text:String
-    get()=definedExternally
-    set(it)=definedExternally
+
+external interface CssDeclaration {
+    var text: String?
+        get() = definedExternally
+        set(it) = definedExternally
     /*
     val length:Int=definedExternally
     var float:String=definedExternally
