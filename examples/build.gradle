@@ -34,6 +34,7 @@ war {
 gretty {
     httpPort=8081
     interactiveMode="restartOnKeyPress"
+    contextPath=""
 }
 
 task copyKotlinJs()<<{

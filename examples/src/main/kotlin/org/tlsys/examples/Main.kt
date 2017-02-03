@@ -2,6 +2,7 @@ package org.tlsys.examples
 
 import org.tlsys.css.CSS
 import org.tlsys.css.CSSClassBuilder
+import org.tlsys.css.TreeSecretedCssClass
 import org.w3c.dom.HTMLButtonElement
 import kotlin.browser.document
 import kotlin.dom.Closeable
@@ -9,12 +10,14 @@ import kotlin.dom.onClick
 
 var css: Closeable? = null
 
+
+
 fun createCSS() {
     if (css !== null)
         css!!.close()
 
     css = CSS {
-        "name"{
+        "name" then {
 
         }
 
@@ -51,7 +54,8 @@ fun createCSS() {
             border = "solid 1px"
             add(".p2") {
                 color = "black"
-                +">.userName" {
+
+                ">.userName" then {
                     color = "red"
                 }
                 hover {

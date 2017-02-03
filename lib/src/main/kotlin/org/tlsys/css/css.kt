@@ -17,7 +17,7 @@ interface CSSClassBuilder {
     }
 
     operator fun String.invoke(f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass = add(this, f)
-    operator fun CSSClassBuilder.unaryPlus()
+    infix fun String.then(function: TreeSecretedCssClass.() -> Unit) = add("$$this", function)
 }
 
 interface CssClass : CssDeclaration {
@@ -36,7 +36,9 @@ interface TreeCssClass : CSSClassBuilder, CssClass {
 
 interface TreeSecretedCssClass : CSSClassBuilder, CssClass, SecretedCssClass {
     abstract fun extend(template: CSSTemplate)
-    fun hover(f: TreeSecretedCssClass.() -> Unit) = add(":hover", f)
+    fun hover(f: TreeSecretedCssClass.() -> Unit): CSSClassBuilder {
+        return add("$:hover", f)
+    }
 }
 
 interface CSSTemplate : TreeCssClass
@@ -73,18 +75,24 @@ object CSS {
 private open interface BaseCSSBuilder : CSSCustomBuilder {
 
 }
-
+//myExample
+//my-example
 private fun convertProperty(str: String): String {
     var out = ""
-    for (i in 0..str.length) {
+    for (i in 0..str.length-1) {
         val c = str[i]
         val l = c.toLowerCase()
-        if (c == l) out += c else out += "-$l"
+        if (c == l)
+            out += c
+        else
+            out += "-$l"// "-" + l
     }
     return out
 }
 
-private open class ClassBuilderImp(var name: String?) : CSSTemplate, BaseCSSBuilder, TreeSecretedCssClass {
+private open class ClassBuilderImp(
+        @JsName(name = "\$_name")
+        var name: String?) : CSSTemplate, BaseCSSBuilder, TreeSecretedCssClass {
     override var selector: String
         get() = name!!
         set(value) {
@@ -94,18 +102,17 @@ private open class ClassBuilderImp(var name: String?) : CSSTemplate, BaseCSSBuil
     override fun not(): TreeSecretedCssClass {
         if (name == null)
             TODO()
-        name = ":not($name)"
+        name = ":not(${name!!.trimStart()})"
         return this
     }
 
-
+/*
     override fun CSSClassBuilder.unaryPlus() {
-        if (name !== null && name!!.startsWith(" "))
-            name = name!!.substring(1)
+        console.info("INvoke on \"$name\"")
+        nextStyleIsThen = true
     }
-
+*/
     override fun generateCss(): String {
-        var l = 0
         val sb = StringBuilder()
         for (f in classes) {
             f.genCss(null) {
@@ -119,10 +126,20 @@ private open class ClassBuilderImp(var name: String?) : CSSTemplate, BaseCSSBuil
     val classes = ArrayList<ClassBuilderImp>()
 
     override fun add(name: String, f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass {
-        val cb = ClassBuilderImp(" $name")
+        console.info("ADD \"$name\"")
+        var name = name
+        if (name.startsWith("$")) {
+            name = name.substring(1)
+        } else {
+            name = " $name"
+        }
+        val cb = ClassBuilderImp(name)
         cb.f()
         classes += cb
         return cb
+    }
+
+    fun close() {
     }
 
     /*
@@ -149,30 +166,20 @@ private open class ClassBuilderImp(var name: String?) : CSSTemplate, BaseCSSBuil
 
     private fun drawBody(out: Appendable) {
         for (s in getAllPropertys()) {
-            out.append("${s.key}:${s.value};")
+            out.append("\t${s.key}:${s.value};\n")
         }
     }
 
     fun genCss(self: String?, f: (String) -> Unit) {
         val body = StringBuilder()
-        if (self !== null) {
+        var selfName = "${self ?: ""}${name ?: ""}"
+        if (name !== null) {
             drawBody(body)
-            f("$self{\n$body}\n")
+            f("$selfName{\n$body}\n")
         }
-/*
-        for (s in extends)
-            s.drawBody(body)
 
-
-        for (d in ands)
-            d.value.genCss("$self.${d.key}", f)
-        for (d in thens)
-            d.value.genCss("$self${d.key}", f)
-        for (d in childs)
-            d.value.genCss("$self>${d.key}", f)
-        */
         for (d in classes) {
-            d.genCss("${self ?: ""}${d.name}", f)
+            d.genCss(selfName, f)
         }
     }
 
