@@ -1,693 +1,693 @@
 package org.tlsys.css
 
-import kotlin.js.definedExternally
+//import kotlin.js.noImpl
 
 //
 external interface CssDeclaration {
     var text: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     val length: Int?
-        get() = definedExternally
+        get() = noImpl
     var float: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var _dashed_attribute: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var _camel_cased_attribute: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var alignContent: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var alignItems: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var alignSelf: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var animation: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var animationDelay: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var animationDirection: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var animationDuration: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var animationFillMode: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var animationIterationCount: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var animationName: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var animationPlayState: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var animationTimingFunction: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var backfaceVisibility: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var background: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var backgroundAttachment: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var backgroundClip: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var backgroundColor: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var backgroundImage: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var backgroundOrigin: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var backgroundPosition: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var backgroundRepeat: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var backgroundSize: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var border: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderBottom: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderBottomColor: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderBottomLeftRadius: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderBottomRightRadius: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderBottomStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderBottomWidth: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderCollapse: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderColor: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderImage: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderImageOutset: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderImageRepeat: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderImageSlice: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderImageSource: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderImageWidth: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderLeft: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderLeftColor: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderLeftStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderLeftWidth: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderRadius: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderRight: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderRightColor: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderRightStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderRightWidth: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderSpacing: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderTop: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderTopColor: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderTopLeftRadius: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderTopRightRadius: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderTopStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderTopWidth: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var borderWidth: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var bottom: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var boxDecorationBreak: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var boxShadow: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var boxSizing: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var breakAfter: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var breakBefore: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var breakInside: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var captionSide: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var clear: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var clip: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var color: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var columnCount: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var columnFill: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var columnGap: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var columnRule: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var columnRuleColor: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var columnRuleStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var columnRuleWidth: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var columnSpan: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var columnWidth: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var columns: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var content: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var counterIncrement: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var counterReset: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var cursor: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var direction: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var display: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var emptyCells: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var filter: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var flex: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var flexBasis: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var flexDirection: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var flexFlow: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var flexGrow: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var flexShrink: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var flexWrap: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var font: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontFamily: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontFeatureSettings: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontKerning: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontLanguageOverride: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontSize: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontSizeAdjust: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontStretch: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontSynthesis: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontVariant: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontVariantAlternates: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontVariantCaps: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontVariantEastAsian: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontVariantLigatures: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontVariantNumeric: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontVariantPosition: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var fontWeight: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var hangingPunctuation: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var height: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var hyphens: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var imageOrientation: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var imageRendering: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var imageResolution: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var imeMode: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var justifyContent: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var left: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var letterSpacing: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var lineBreak: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var lineHeight: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var listStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var listStyleImage: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var listStylePosition: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var listStyleType: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var margin: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var marginBottom: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var marginLeft: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var marginRight: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var marginTop: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var mark: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var markAfter: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var markBefore: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var marks: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var marqueeDirection: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var marqueePlayCount: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var marqueeSpeed: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var marqueeStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var mask: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var maskType: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var maxHeight: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var maxWidth: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var minHeight: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var minWidth: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var navDown: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var navIndex: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var navLeft: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var navRight: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var navUp: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var objectFit: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var objectPosition: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var opacity: Double?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var order: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var orphans: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var outline: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var outlineColor: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var outlineOffset: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var outlineStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var outlineWidth: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var overflowWrap: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var overflow: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var overflowX: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var overflowY: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var padding: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var paddingBottom: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var paddingLeft: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var paddingRight: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var paddingTop: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var pageBreakAfter: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var pageBreakBefore: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var pageBreakInside: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var perspective: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var perspectiveOrigin: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var phonemes: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var position: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var quotes: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var resize: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var rest: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var restAfter: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var restBefore: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var right: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var tabSize: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var tableLayout: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textAlign: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textAlignLast: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textCombineUpright: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textDecoration: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textDecorationColor: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textDecorationLine: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textDecorationStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textIndent: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textJustify: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textOrientation: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textOverflow: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textShadow: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textTransform: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var textUnderlinePosition: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var top: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var transform: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var transformOrigin: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var transformStyle: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var transition: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var transitionDelay: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var transitionDuration: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var transitionProperty: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var transitionTimingFunction: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var unicodeBidi: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var verticalAlign: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var visibility: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var voiceBalance: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var voiceDuration: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var voicePitch: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var voicePitchRange: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var voiceRate: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var voiceStress: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var voiceVolume: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var whiteSpace: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var widows: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var width: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var wordBreak: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var wordSpacing: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var wordWrap: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var writingMode: String?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
     var zIndex: Int?
-        get() = definedExternally
-        set(value) = definedExternally
+        get() = noImpl
+        set(value) = noImpl
 }
