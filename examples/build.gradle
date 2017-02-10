@@ -1,17 +1,13 @@
 apply plugin: "kotlin2js"
 apply plugin: 'war'
 //apply plugin: 'jetty'
-apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
-
-configurations{
-    kotlinLibs
-}
+//apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
 
 dependencies {
     providedCompile "org.jetbrains.kotlin:kotlin-js-library:$kotlin_version"
+    providedCompile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
     compile project(":lib")
 }
-
 
 //httpPort=8081
 def out = "${buildDir}/js"
@@ -25,20 +21,23 @@ compileKotlin2Js {
 
 war {
     dependsOn(":${project.name}:compileKotlin2Js")
-    from (out) {
+    from(out) {
         include "*.js"
         include "*.map"
     }
 }
 
+/*
 gretty {
-    httpPort=8081
-    interactiveMode="restartOnKeyPress"
-    contextPath=""
+    httpPort = 8081
+    interactiveMode = "restartOnKeyPress"
+    contextPath = ""
 }
+*/
 
-task copyKotlinJs()<<{
-    //doFirst {
+task copyKotlinJs() {
+    doLast {
+        //doFirst {
         copy {
             //println configurations.runtime.resolve()
             project.configurations.compile.asFileTree.each {
@@ -50,6 +49,7 @@ task copyKotlinJs()<<{
             include '*.map'
             into file(out)
         }
+    }
     //}
 }
 
