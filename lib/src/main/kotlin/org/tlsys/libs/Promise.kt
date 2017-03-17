@@ -1,5 +1,6 @@
 package org.tlsys.libs
 
+/*
 external
 class Promise<V> {
 
@@ -18,3 +19,4 @@ class Promise<V> {
     fun catch(f: (Throwable) -> Unit): Promise<V>
 }
 
+*/

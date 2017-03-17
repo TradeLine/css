@@ -1,9 +1,6 @@
 package org.tlsys.css
 
-import org.w3c.dom.HTMLStyleElement
 import org.w3c.dom.css.CSSStyleDeclaration
-import kotlin.browser.document
-import kotlin.dom.Closeable
 
 class SizeRect(var top: String = "", var left: String = "", var bottom: String = "", var right: String = "")
 

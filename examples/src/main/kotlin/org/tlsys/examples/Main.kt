@@ -1,22 +1,11 @@
 package org.tlsys.examples
 
 import org.tlsys.css.CSS
-import org.tlsys.css.CSSClassBuilder
-import org.tlsys.css.TreeSecretedCssClass
 import org.w3c.dom.HTMLButtonElement
 import kotlin.browser.document
-import kotlin.dom.Closeable
-import kotlin.dom.onClick
-
-var css: Closeable? = null
 
 
-
-fun createCSS() {
-    if (css !== null)
-        css!!.close()
-
-    css = CSS {
+val css = CSS {
         "name" then {
 
         }
@@ -64,20 +53,8 @@ fun createCSS() {
             }
         }
     }
-}
 
 fun main(args: Array<String>) {
 
     val btn = (document.getElementById("btn") as HTMLButtonElement)
-    btn.onClick {
-        if (css !== null) {
-            css!!.close()
-            css = null
-        } else {
-            createCSS()
-        }
-    }
-
-
-    createCSS()
 }

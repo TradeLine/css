@@ -4,7 +4,6 @@ apply plugin: 'war'
 //apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
 
 dependencies {
-    providedCompile "org.jetbrains.kotlin:kotlin-js-library:$kotlin_version"
     providedCompile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
     compile project(":lib")
 }

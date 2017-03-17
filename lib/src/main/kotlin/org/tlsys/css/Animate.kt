@@ -1,14 +1,31 @@
 package org.tlsys.css
 
 import org.w3c.dom.HTMLElement
-import kotlin.dom.Closeable
-import kotlin.dom.on
-import org.tlsys.css.*
-import org.tlsys.libs.Promise
+import org.w3c.dom.events.Event
+import org.w3c.dom.events.EventListener
+import kotlin.js.Promise
 
 private var animIt = 0
 
 class AnimationBuilder<T : HTMLElement>(val parent: T) {
+
+    private interface Closeable {
+        fun close()
+    }
+
+    private fun HTMLElement.on(event: String, listener: (Event) -> Unit): Closeable {
+        val e = EventListener {
+            listener(it)
+        }
+        addEventListener(event, e)
+
+        return object : Closeable {
+            override fun close() {
+                removeEventListener(event, e)
+            }
+
+        }
+    }
 
     private val id = animIt++
 
@@ -79,14 +96,14 @@ class AnimationBuilder<T : HTMLElement>(val parent: T) {
         var onStart: Closeable? = null
         var onStop: Closeable? = null
 
-        onStart = parent.on("animationstart", false, {
+        onStart = parent.on("animationstart", {
             for (s in start)
                 s(parent)
             onStart!!.close()
         })
 
 
-        onStop = parent.on("animationend", false, {
+        onStop = parent.on("animationend", {
             onStop!!.close()
             for (s in end)
                 s(parent)
