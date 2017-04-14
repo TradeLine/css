@@ -177,12 +177,6 @@ private open class ClassBuilderImp(
         return this
     }
 
-    /*
-        override fun CSSClassBuilder.unaryPlus() {
-            console.info("INvoke on \"$name\"")
-            nextStyleIsThen = true
-        }
-    */
     override fun generateCss(): String {
         val sb = StringBuilder()
         for (f in classes) {
@@ -197,7 +191,6 @@ private open class ClassBuilderImp(
     val classes = ArrayList<ClassBuilderImp>()
 
     override fun add(name: String, f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass {
-        console.info("ADD \"$name\"")
         var name = name
         if (name.startsWith("$")) {
             name = name.substring(1)
