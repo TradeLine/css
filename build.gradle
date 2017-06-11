@@ -1,13 +1,14 @@
 buildscript {
-    ext.FRONTOL_SPR_UID="org.tlsys.plugins.goods.b1.import.frontol_spr"
-    ext.kotlin_version="1.1.1"
+    ext.kotlin_version="1.1.2"
     repositories {
         mavenCentral()
         jcenter()
         mavenLocal()
+        /*
         maven {
             url 'http://dl.bintray.com/kotlin/kotlin-dev'
         }
+        */
     }
 
     dependencies {
@@ -20,8 +21,10 @@ subprojects {
     repositories {
         mavenCentral()
         mavenLocal()
+        /*
         maven {
             url 'http://dl.bintray.com/kotlin/kotlin-dev'
         }
+        */
     }
 }
