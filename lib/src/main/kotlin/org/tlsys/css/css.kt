@@ -258,7 +258,7 @@ private open class ClassBuilderImp(
         var selfName = "${self ?: ""}${name ?: ""}"
         if (name !== null) {
             drawBody(body)
-            f("$selfName{\n$body}\n")
+            f("$selfName{\n${body.asString()}\n")
         }
 
         for (d in classes) {
