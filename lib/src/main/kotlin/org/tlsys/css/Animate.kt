@@ -14,7 +14,7 @@ class AnimationBuilder<T : HTMLElement>(val parent: T) {
     }
 
     private fun HTMLElement.on(event: String, listener: (Event) -> Unit): Closeable {
-        val e = EventListener {
+        val e: (Event) -> dynamic = {
             listener(it)
         }
         addEventListener(event, e)
