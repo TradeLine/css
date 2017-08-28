@@ -55,7 +55,7 @@ interface CSSClassBuilder {
     }
 
     @JsName(name = "E")
-    operator fun String.invoke(f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass = add(this, f)
+    operator fun String.invoke(f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass
 
     @JsName(name = "F")
     infix fun String.then(ff: TreeSecretedCssClass.() -> Unit)// = add("$$this", function)
@@ -64,10 +64,10 @@ interface CSSClassBuilder {
 @JsName(name = "J")
 interface CssClass : CssDeclaration {
     @JsName(name = "H")
-    fun rgb(r: Double, g: Double, b: Double) = "rgb($r,$g,$b)"
+    fun rgb(r: Double, g: Double, b: Double): String
 
     @JsName(name = "J")
-    fun rgba(r: Double, g: Double, b: Double, a: Double) = "rgba($r,$g,$b,$a)"
+    fun rgba(r: Double, g: Double, b: Double, a: Double): String
 }
 
 @JsName(name = "K")
@@ -91,9 +91,10 @@ interface TreeSecretedCssClass : CSSClassBuilder, CssClass, SecretedCssClass {
     abstract fun extend(template: CSSTemplate)
 
     @JsName(name = "T")
-    fun hover(f: TreeSecretedCssClass.() -> Unit): CSSClassBuilder {
-        return add("$:hover", f)
-    }
+    fun hover(f: TreeSecretedCssClass.() -> Unit): CSSClassBuilder
+
+    @JsName(name = "TA")
+    fun active(f: TreeSecretedCssClass.() -> Unit): CSSClassBuilder
 }
 
 @JsName(name = "W")
@@ -163,6 +164,16 @@ private fun convertProperty(str: String): String {
 private open class ClassBuilderImp(
         @JsName(name = "\$_Q0")
         var name: String?) : CSSTemplate, BaseCSSBuilder, TreeSecretedCssClass {
+    override fun active(f: TreeSecretedCssClass.() -> Unit): CSSClassBuilder = add("$:active", f)
+
+    override fun hover(f: TreeSecretedCssClass.() -> Unit): CSSClassBuilder = add("$:hover", f)
+
+    override fun rgb(r: Double, g: Double, b: Double): String = "rgb($r,$g,$b)"
+
+    override fun rgba(r: Double, g: Double, b: Double, a: Double) = "rgba($r,$g,$b,$a)"
+
+    override fun String.invoke(f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass = add(this, f)
+
     override fun String.then(ff: TreeSecretedCssClass.() -> Unit) {
         add("$$this", ff)
     }
