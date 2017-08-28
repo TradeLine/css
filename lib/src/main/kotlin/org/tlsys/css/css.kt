@@ -184,7 +184,7 @@ private open class ClassBuilderImp(
                 sb.append(it)
             }
         }
-        return sb.toString()
+        return sb.asString()
     }
 
     @JsName(name = "\$_S0")
@@ -219,8 +219,8 @@ private open class ClassBuilderImp(
     */
 
     @JsName(name = "R0")
-    fun getAllPropertys(): Map<String, String> {
-        val properys = HashMap<String, String>()
+    fun getAllPropertys(): JMap<String, String> {
+        val properys = newMap<String, String>()
         val PROPERTY_GETTER: (String, String) -> Unit = { k, v ->
             properys[convertProperty(k)] = v
         }
@@ -232,7 +232,7 @@ private open class ClassBuilderImp(
 
     @JsName(name = "T0")
     private fun drawBody(out: JStringBuilder) {
-        for (s in getAllPropertys()) {
+        getAllPropertys().forEach { s ->
             out.append("\t${s.key}:${s.value};\n")
         }
     }
