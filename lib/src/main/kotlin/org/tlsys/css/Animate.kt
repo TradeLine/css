@@ -12,8 +12,8 @@ class AnimationBuilder<T : HTMLElement>(val parent: T) {
 
     private val id = animIt++
 
-    private val start = ArrayList<T.() -> Unit>()
-    private val end = ArrayList<T.() -> Unit>()
+    private val start = newArray<T.() -> Unit>()
+    private val end = newArray<T.() -> Unit>()
 
     private val steps = HashMap<Int, CssClass>()
 
@@ -106,11 +106,11 @@ class AnimationBuilder<T : HTMLElement>(val parent: T) {
     }
 
     fun onStart(event: T.() -> Unit) {
-        start += event
+        start.add(event)
     }
 
     fun onEnd(event: T.() -> Unit) {
-        end += event
+        end.add(event)
     }
 }
 

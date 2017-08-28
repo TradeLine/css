@@ -197,7 +197,7 @@ private open class ClassBuilderImp(
     }
 
     @JsName(name = "\$_S0")
-    val classes = ArrayList<ClassBuilderImp>()
+    val classes = newArray<ClassBuilderImp>()
 
     override fun add(name: String, f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass {
         console.info("ADD \"$name\"")
@@ -209,7 +209,7 @@ private open class ClassBuilderImp(
         }
         val cb = ClassBuilderImp(name)
         cb.f()
-        classes += cb
+        classes.add(cb)
         return cb
     }
 
