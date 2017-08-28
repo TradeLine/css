@@ -58,7 +58,7 @@ interface CSSClassBuilder {
     operator fun String.invoke(f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass = add(this, f)
 
     @JsName(name = "F")
-    infix fun String.then(function: TreeSecretedCssClass.() -> Unit) = add("$$this", function)
+    infix fun String.then(ff: TreeSecretedCssClass.() -> Unit)// = add("$$this", function)
 }
 
 @JsName(name = "J")
@@ -163,6 +163,10 @@ private fun convertProperty(str: String): String {
 private open class ClassBuilderImp(
         @JsName(name = "\$_Q0")
         var name: String?) : CSSTemplate, BaseCSSBuilder, TreeSecretedCssClass {
+    override fun String.then(ff: TreeSecretedCssClass.() -> Unit) {
+        add("$$this", ff)
+    }
+
     override var selector: String
         get() = name!!
         set(value) {
