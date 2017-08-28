@@ -178,7 +178,7 @@ private open class ClassBuilderImp(
     }
 
     override fun generateCss(): String {
-        val sb = StringBuilder()
+        val sb = newStringBuilder()
         for (f in classes) {
             f.genCss(null) {
                 sb.append(it)
@@ -231,7 +231,7 @@ private open class ClassBuilderImp(
     }
 
     @JsName(name = "T0")
-    private fun drawBody(out: Appendable) {
+    private fun drawBody(out: JStringBuilder) {
         for (s in getAllPropertys()) {
             out.append("\t${s.key}:${s.value};\n")
         }
@@ -239,7 +239,7 @@ private open class ClassBuilderImp(
 
     @JsName(name = "Y0")
     fun genCss(self: String?, f: (String) -> Unit) {
-        val body = StringBuilder()
+        val body = newStringBuilder()
         var selfName = "${self ?: ""}${name ?: ""}"
         if (name !== null) {
             drawBody(body)
