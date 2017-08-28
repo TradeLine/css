@@ -14,6 +14,7 @@ object StyleBinder {
             style.innerHTML = text
             style.type = "text/css"
             document.head.asDynamic().appendChild(style)
+            style
         }
 
         fun close() {

@@ -32,7 +32,7 @@ class AnimationBuilder<T : HTMLElement>(val parent: T) {
     private val start = newArray<T.() -> Unit>()
     private val end = newArray<T.() -> Unit>()
 
-    private val steps = HashMap<Int, CssClass>()
+    private val steps = newMap<Int, CssClass>()
 
     private val initCss = CSS.custom()
     private val stepCss = CSS.custom()

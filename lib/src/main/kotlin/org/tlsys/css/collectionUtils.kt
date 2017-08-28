@@ -28,8 +28,13 @@ inline fun throwError(message: String) = js("throw new Error(message)")
 
 
 external class JMap<K, V>
+
 inline fun <K, V> newMap(): JMap<K, V> = js("new Array")
-inline operator fun <K, V> JMap<K, V>.get(key: K?): V? = asDynamic()[key]
+inline operator fun <K, V> JMap<K, V>.get(key: K?): V? {
+    val self = this
+    return js("self[key]===undefined?null:self[key]")
+}
+
 inline operator fun <K, V> JMap<K, V>.set(key: K?, value: V?): Unit {
     asDynamic()[key] = value
 }
