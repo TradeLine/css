@@ -48,11 +48,7 @@ interface CSSClassBuilder {
     fun add(name: String, f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass
 
     @JsName(name = "D")
-    fun template(f: CSSTemplate.() -> Unit): CSSTemplate {
-        val c = ClassBuilderImp(null)
-        c.f()
-        return c
-    }
+    fun template(f: CSSTemplate.() -> Unit): CSSTemplate
 
     @JsName(name = "E")
     operator fun String.invoke(f: TreeSecretedCssClass.() -> Unit): TreeSecretedCssClass
@@ -164,6 +160,13 @@ private fun convertProperty(str: String): String {
 private open class ClassBuilderImp(
         @JsName(name = "\$_Q0")
         var name: String?) : CSSTemplate, BaseCSSBuilder, TreeSecretedCssClass {
+
+    override fun template(f: CSSTemplate.() -> Unit): CSSTemplate {
+        val c = ClassBuilderImp(null)
+        c.f()
+        return c
+    }
+
     override fun active(f: TreeSecretedCssClass.() -> Unit): CSSClassBuilder = add("$:active", f)
 
     override fun hover(f: TreeSecretedCssClass.() -> Unit): CSSClassBuilder = add("$:hover", f)
