@@ -39,6 +39,7 @@ jar {
     from new File(out)
     include '*.js'
     include '*.map'
+    include '**/*.kjsm'
 }
 
 /*
