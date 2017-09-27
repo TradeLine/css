@@ -2,7 +2,6 @@ package org.tlsys.css
 
 import org.w3c.dom.HTMLElement
 import org.w3c.dom.events.Event
-import org.w3c.dom.events.EventListener
 import kotlin.js.Promise
 
 private var animIt = 0

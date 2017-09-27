@@ -1,5 +1,5 @@
 apply plugin: 'maven-publish'
-apply plugin: "kotlin2js"
+apply plugin: 'kotlin-platform-js'
 
 publishing {
     publications {
