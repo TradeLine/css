@@ -29,9 +29,11 @@ def out = "${buildDir}/classes/main"
 compileKotlin2Js {
     kotlinOptions.sourceMap = true
     kotlinOptions.outputFile = "$out/org.tlsys.css.js"
+    kotlinOptions.sourceMapEmbedSources = "always"
     kotlinOptions.suppressWarnings = true
     kotlinOptions.verbose = true
     kotlinOptions.main = "call"
+    kotlinOptions.moduleKind = "commonjs"
 }
 
 jar {
