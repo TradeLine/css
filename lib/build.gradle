@@ -33,7 +33,7 @@ compileKotlin2Js {
     kotlinOptions.suppressWarnings = true
     kotlinOptions.verbose = true
     kotlinOptions.main = "call"
-    kotlinOptions.moduleKind = "commonjs"
+    kotlinOptions.moduleKind = "umd"
 }
 
 jar {
