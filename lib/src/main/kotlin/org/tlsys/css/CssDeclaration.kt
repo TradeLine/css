@@ -690,4 +690,20 @@ external interface CssDeclaration {
     var zIndex: Int?
         get() = definedExternally
         set(value) = definedExternally
+    var fill: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var stroke: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var strokeWidth: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var stopColor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+    var clipPath: String?
+        get() = definedExternally
+        set(value) = definedExternally
+
 }

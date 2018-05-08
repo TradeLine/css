@@ -1,18 +1,19 @@
 package org.tlsys.css
 
+import org.w3c.dom.Element
 import org.w3c.dom.HTMLElement
 import org.w3c.dom.events.Event
 import kotlin.js.Promise
 
 private var animIt = 0
 
-class AnimationBuilder<T : HTMLElement>(val parent: T) {
+class AnimationBuilder<T : Element>(val parent: T) {
 
     private interface Closeable {
         fun close()
     }
 
-    private fun HTMLElement.on(event: String, listener: (Event) -> Unit): Closeable {
+    private fun Element.on(event: String, listener: (Event) -> Unit): Closeable {
         val e: (Event) -> dynamic = {
             listener(it)
         }
