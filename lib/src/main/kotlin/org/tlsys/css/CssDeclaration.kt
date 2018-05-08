@@ -705,5 +705,9 @@ external interface CssDeclaration {
     var clipPath: String?
         get() = definedExternally
         set(value) = definedExternally
+    var textAnchor: String?
+        get() = definedExternally
+        set(value) = definedExternally
+
 
 }
