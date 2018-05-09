@@ -6,7 +6,7 @@ publishing {
         mavenJava(MavenPublication) {
             groupId "org.tlsys"
             artifactId 'css'
-            version "1.0.3"
+            version "1.0.4"
             from components.java
         }
     }

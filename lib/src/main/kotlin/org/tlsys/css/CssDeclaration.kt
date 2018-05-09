@@ -708,6 +708,9 @@ external interface CssDeclaration {
     var textAnchor: String?
         get() = definedExternally
         set(value) = definedExternally
+    var dominantBaseline: String?
+        get() = definedExternally
+        set(value) = definedExternally
 
 
 }
