@@ -17,13 +17,8 @@ publishing {
     }
 }
 
-configurations {
-    providedCompile
-    compile.extendsFrom providedCompile
-}
-
 dependencies {
-    providedCompile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
 }
 def out = "${buildDir}/classes/main"
 compileKotlin2Js {
