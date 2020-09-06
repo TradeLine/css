@@ -1,11 +1,2 @@
-def configureGradleScriptKotlinOn(ProjectDescriptor project) {
-    def ktsFile = new File(project.projectDir, "build.gradle.kts")
-    if (ktsFile.isFile()) {
-        project.buildFileName = 'build.gradle.kts'
-    }
-    project.children.each { configureGradleScriptKotlinOn(it) }
-}
-
 rootProject.name = 'css'
-include ":lib",":examples"
-configureGradleScriptKotlinOn rootProject
+include ":css"
